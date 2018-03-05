@@ -1,0 +1,51 @@
+<ion-header>
+    <ion-navbar color="danger">
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title text-left>CoFEE Engineering</ion-title>
+      </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-split-pane>
+    <ion-menu [content]="mycontent1" enabled=true persistent=true>
+      <ion-content>
+        <ion-list>
+          <div class="centervert">
+            <button ion-button icon-only large block clear tooltip="Summary View">
+              <ion-icon md-name="home"></ion-icon>
+            </button>
+            <button ion-button icon-only large block clear>
+              <ion-icon md-name="access_time"></ion-icon>
+            </button>
+            <button ion-button icon-only large block clear [color]="isList ? 'primary' : 'light'">
+              <ion-icon md-name="assignment"></ion-icon>
+            </button>
+            <button ion-button icon-only large block clear [color]="isList ? 'primary' : 'light'">
+              <ion-icon md-name="assignment_return"></ion-icon>
+            </button>
+
+            <button ion-button icon-only large block clear>
+              <ion-icon md-name="shopping_basket"></ion-icon>
+            </button>
+            <button ion-button icon-only large block clear>
+              <ion-icon md-name="show_chart"></ion-icon>
+            </button>
+            <button ion-button icon-only large block clear>
+              <ion-icon md-name="location_city"></ion-icon>
+            </button>
+            <button ion-button icon-only large block clear>
+              <ion-icon md-name="attach_money"></ion-icon>
+            </button>
+            <button ion-button icon-only large block clear>
+              <ion-icon md-name="check_box"></ion-icon>
+            </button>
+          </div>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+  </ion-split-pane>
+
+  <ion-nav [root]="rootPage1" #mycontent1 main></ion-nav>
+</ion-content>

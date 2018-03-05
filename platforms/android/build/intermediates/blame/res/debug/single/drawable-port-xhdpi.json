@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/vxsrini/Development/CoFEE/platforms/android/build/intermediates/res/merged/debug/drawable-port-xhdpi/screen.png",
+        "source": "/home/vxsrini/Development/CoFEE/platforms/android/res/drawable-port-xhdpi/screen.png"
+    },
+    {
+        "merged": "/home/vxsrini/Development/FiberMob/platforms/android/build/intermediates/res/merged/debug/drawable-port-xhdpi/screen.png",
+        "source": "/home/vxsrini/Development/FiberMob/platforms/android/res/drawable-port-xhdpi/screen.png"
+    }
+]

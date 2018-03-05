@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/vxsrini/Development/FiberMob/platforms/android/build/intermediates/res/merged/debug/mipmap-hdpi/icon.png",
+        "source": "/home/vxsrini/Development/FiberMob/platforms/android/res/mipmap-hdpi/icon.png"
+    },
+    {
+        "merged": "/home/vxsrini/Development/CoFEE/platforms/android/build/intermediates/res/merged/debug/mipmap-hdpi/icon.png",
+        "source": "/home/vxsrini/Development/CoFEE/platforms/android/res/mipmap-hdpi/icon.png"
+    }
+]

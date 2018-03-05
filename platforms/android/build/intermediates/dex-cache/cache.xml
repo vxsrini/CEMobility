@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/home/vxsrini/Development/CoFEE/platforms/android/build/intermediates/exploded-aar/android/CordovaLib/unspecified/debug/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="f84f2e3545fe59cf3f7c15ea8d930cc3963205c8">
+        <dex dex="/home/vxsrini/Development/CoFEE/platforms/android/build/intermediates/pre-dexed/debug/CordovaLib-unspecified-debug_1629f4cb1eaa283b31efb023c90a39e23f2fe0b6.jar" />
+    </item>
+
+</items>
