@@ -1,7 +1,11 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController } from 'ionic-angular/navigation/nav-controller';
 import { NavParams } from 'ionic-angular/navigation/nav-params';
 import { Chart } from 'chart.js';
+
+import L from 'leaflet';
+import 'leaflet.markercluster';
+
 
 
 /**
@@ -18,15 +22,49 @@ import { Chart } from 'chart.js';
 export class Summary {
 
   @ViewChild('barCanvas') barCanvas;
+  @ViewChild('map') mapContainer: ElementRef;
+
 
   barChart: any;
+  cluster;
+  mymap: any;
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     //this.addGraph();
   }
 
+  loadmap() {
+    this.mymap = L.map('map').setView([39.0097, -95.844], 4);
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+      maxZoom: 18,
+      attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+        '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+        'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+      id: 'mapbox.streets'
+    }).addTo(this.mymap);
+
+    
+    L.marker([39.809734, -98.55562]).addTo(this.mymap)
+		.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
+
+    var popup = L.popup();
+
+    function onMapClick(e) {
+      popup
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(this.mymap);
+    }
+
+
+    this.mymap.on('click', onMapClick);
+
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad Summary');
+    this.loadmap();
 
     this.barChart = new Chart(this.barCanvas.nativeElement, {
 
@@ -34,7 +72,7 @@ export class Summary {
       data: {
         labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
         datasets: [{
-          label: '# of Votes',
+          label: '# of Sites',
           data: [12, 19, 3, 5, 2, 3],
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',

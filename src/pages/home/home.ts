@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular/navigation/nav-controller';
 import { NavParams } from 'ionic-angular/navigation/nav-params';
 import { OneFiberDashboard } from '../one-fiber-dashboard/one-fiber-dashboard';
 import { Summary } from '../summary/summary';
+import { PlayStation } from '../play-station/play-station';
 
 
 
@@ -31,6 +32,8 @@ export class HomePage {
     this.param1 = this.navParams.get("param1");
     this.param2 = this.navParams.get("param2");
     this.allParams = this.navParams.data;
+    //navCtrl.push(PlayStation);
+
   }
 
   ionViewDidLoad() {

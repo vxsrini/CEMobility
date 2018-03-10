@@ -6,4 +6,23 @@ page-home {
         flex-direction: column;
         justify-content: center;
     }
+
+    .main{
+        border: think solid black;
+        //background: #1E1E1E;
+        background: black;
+        //width:50%;
+        //height:50%;
+
+        }
+
+    .menuCol{
+        background: #3C3B37;
+        //background: #F4F4F4;
+        //background: white;
+    }
+
+    .row {
+        height:100%;
+    }
 }
