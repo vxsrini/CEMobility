@@ -7,7 +7,6 @@ import L from 'leaflet';
 import 'leaflet.markercluster';
 
 
-
 /**
  * Generated class for the Summary page.
  *
@@ -28,6 +27,7 @@ export class Summary {
   barChart: any;
   cluster;
   mymap: any;
+  enableFilter : boolean = false;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
@@ -44,21 +44,49 @@ export class Summary {
       id: 'mapbox.streets'
     }).addTo(this.mymap);
 
-    
+
     L.marker([39.809734, -98.55562]).addTo(this.mymap)
-		.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
+      .bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
 
     var popup = L.popup();
 
-    function onMapClick(e) {
-      popup
-        .setLatLng(e.latlng)
-        .setContent("You clicked the map at " + e.latlng.toString())
-        .openOn(this.mymap);
+
+    var myButtonOptions = {
+      'text': 'MyButton',  // string
+      'iconUrl': 'images/myButton.png',  // string
+      'onClick': function () { console.log("Clicked the button"); },  // callback function
+      'hideText': true,  // bool
+      'maxWidth': 30,  // number
+      'doToggle': false,  // bool
+      'toggleStatus': false  // bool
     }
 
+    var ourCustomControl = L.Control.extend({
+      options: {
+        position: 'topright'
+        //control position - allowed: 'topleft', 'topright', 'bottomleft', 'bottomright'
+      },
+      onAdd: function (map) {
+        var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
+        container.style.backgroundColor = 'white';
+        container.style.backgroundImage = "url(assets/imgs/logo.png)";
+        container.style.width = '30px';
+        container.style.height = '30px';
+        container.onclick = this.customFilters();
+        return container;
+      }
+    });
 
-    this.mymap.on('click', onMapClick);
+
+
+    var myButton = new ourCustomControl().addTo(this.mymap);
+    var myButton1 = new ourCustomControl().addTo(this.mymap);
+
+
+  }
+
+  customFilters() {
+    this.enableFilter = true;
 
   }
 

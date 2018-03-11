@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/home/vxsrini/Development/CEMobility/platforms/android/build/intermediates/res/merged/debug/drawable-port-xxxhdpi/screen.png",
+        "source": "/home/vxsrini/Development/CEMobility/platforms/android/res/drawable-port-xxxhdpi/screen.png"
+    },
+    {
         "merged": "/home/vxsrini/Development/FiberMob/platforms/android/build/intermediates/res/merged/debug/drawable-port-xxxhdpi/screen.png",
         "source": "/home/vxsrini/Development/FiberMob/platforms/android/res/drawable-port-xxxhdpi/screen.png"
     },

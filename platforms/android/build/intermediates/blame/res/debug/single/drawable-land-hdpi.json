@@ -4,6 +4,10 @@
         "source": "/home/vxsrini/Development/CoFEE/platforms/android/res/drawable-land-hdpi/screen.png"
     },
     {
+        "merged": "/home/vxsrini/Development/CEMobility/platforms/android/build/intermediates/res/merged/debug/drawable-land-hdpi/screen.png",
+        "source": "/home/vxsrini/Development/CEMobility/platforms/android/res/drawable-land-hdpi/screen.png"
+    },
+    {
         "merged": "/home/vxsrini/Development/FiberMob/platforms/android/build/intermediates/res/merged/debug/drawable-land-hdpi/screen.png",
         "source": "/home/vxsrini/Development/FiberMob/platforms/android/res/drawable-land-hdpi/screen.png"
     }

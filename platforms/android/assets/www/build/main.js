@@ -33,7 +33,7 @@ var OneFiberDashboard = (function () {
     }
     OneFiberDashboard = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-one-fiber-dashboard',template:/*ion-inline-start:"/home/vxsrini/Development/CoFEE/src/pages/one-fiber-dashboard/one-fiber-dashboard.html"*/`  <ion-tabs>\n    <ion-tab [root]="tab1Root" tabTitle="Play Station" tabIcon="musical-notes"></ion-tab>\n    <ion-tab [root]="tab2Root" tabTitle="Edit Station" tabIcon="podium"></ion-tab>\n    <ion-tab [root]="tab3Root" tabTitle="Edit Language" tabIcon="map"></ion-tab>\n    <ion-tab [root]="tab4Root" tabTitle="Settings" tabIcon="flower"></ion-tab>\n  </ion-tabs>\n`/*ion-inline-end:"/home/vxsrini/Development/CoFEE/src/pages/one-fiber-dashboard/one-fiber-dashboard.html"*/,
+            selector: 'page-one-fiber-dashboard',template:/*ion-inline-start:"/home/vxsrini/Development/CEMobility/src/pages/one-fiber-dashboard/one-fiber-dashboard.html"*/`  <ion-tabs>\n    <ion-tab [root]="tab1Root" tabTitle="Play Station" tabIcon="musical-notes"></ion-tab>\n    <ion-tab [root]="tab2Root" tabTitle="Edit Station" tabIcon="podium"></ion-tab>\n    <ion-tab [root]="tab3Root" tabTitle="Edit Language" tabIcon="map"></ion-tab>\n    <ion-tab [root]="tab4Root" tabTitle="Settings" tabIcon="flower"></ion-tab>\n  </ion-tabs>\n`/*ion-inline-end:"/home/vxsrini/Development/CEMobility/src/pages/one-fiber-dashboard/one-fiber-dashboard.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgZone */]])
     ], OneFiberDashboard);
@@ -66,7 +66,7 @@ webpackEmptyAsyncContext.id = 119;
 
 var map = {
 	"../pages/one-fiber-dashboard/one-fiber-dashboard.module": [
-		463,
+		465,
 		0
 	]
 };
@@ -114,7 +114,7 @@ var PlayStation = (function () {
     };
     PlayStation = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'page-play-station',template:/*ion-inline-start:"/home/vxsrini/Development/CoFEE/src/pages/play-station/play-station.html"*/`<!--\n  Generated template for the PlayStation page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-navbar color="danger">\n        <button ion-button menuToggle>\n          <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title text-left>CoFEE Engineering</ion-title>\n      </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n    <canvas id="Permits" width="400" height="400"></canvas>\n</ion-content>\n`/*ion-inline-end:"/home/vxsrini/Development/CoFEE/src/pages/play-station/play-station.html"*/,
+            selector: 'page-play-station',template:/*ion-inline-start:"/home/vxsrini/Development/CEMobility/src/pages/play-station/play-station.html"*/`<ion-card class="card">\n  <ion-card-header>\n    Bar Chart\n  </ion-card-header>\n  <ion-card-content>\n    <button ion-button>Default</button>\n  </ion-card-content>\n</ion-card>`/*ion-inline-end:"/home/vxsrini/Development/CEMobility/src/pages/play-station/play-station.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["h" /* NavParams */]])
     ], PlayStation);
@@ -165,6 +165,7 @@ var HomePage = (function () {
         this.param1 = this.navParams.get("param1");
         this.param2 = this.navParams.get("param2");
         this.allParams = this.navParams.data;
+        //navCtrl.push(PlayStation);
     }
     HomePage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad About');
@@ -174,7 +175,7 @@ var HomePage = (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/home/vxsrini/Development/CoFEE/src/pages/home/home.html"*/`<ion-header>\n    <ion-navbar color="danger">\n        <button ion-button menuToggle>\n          <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title text-left>CoFEE Engineering</ion-title>\n      </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-split-pane>\n    <ion-menu [content]="mycontent1" enabled=true persistent=true>\n      <ion-content>\n        <ion-list>\n          <div class="centervert">\n            <button ion-button icon-only large block clear tooltip="Summary View">\n              <ion-icon md-name="home"></ion-icon>\n            </button>\n            <button ion-button icon-only large block clear>\n              <ion-icon md-name="access_time"></ion-icon>\n            </button>\n            <button ion-button icon-only large block clear [color]="isList ? \'primary\' : \'light\'">\n              <ion-icon md-name="assignment"></ion-icon>\n            </button>\n            <button ion-button icon-only large block clear [color]="isList ? \'primary\' : \'light\'">\n              <ion-icon md-name="assignment_return"></ion-icon>\n            </button>\n\n            <button ion-button icon-only large block clear>\n              <ion-icon md-name="shopping_basket"></ion-icon>\n            </button>\n            <button ion-button icon-only large block clear>\n              <ion-icon md-name="show_chart"></ion-icon>\n            </button>\n            <button ion-button icon-only large block clear>\n              <ion-icon md-name="location_city"></ion-icon>\n            </button>\n            <button ion-button icon-only large block clear>\n              <ion-icon md-name="attach_money"></ion-icon>\n            </button>\n            <button ion-button icon-only large block clear>\n              <ion-icon md-name="check_box"></ion-icon>\n            </button>\n          </div>\n        </ion-list>\n      </ion-content>\n    </ion-menu>\n  </ion-split-pane>\n\n  <ion-nav [root]="rootPage1" #mycontent1 main></ion-nav>\n</ion-content>`/*ion-inline-end:"/home/vxsrini/Development/CoFEE/src/pages/home/home.html"*/,
+            selector: 'page-home',template:/*ion-inline-start:"/home/vxsrini/Development/CEMobility/src/pages/home/home.html"*/`<ion-header>\n  <ion-navbar color="danger">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title text-left>CoFEE Engineering</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-row>\n    <ion-col col-1 id="sideMenu" class="menuCol">\n      <ion-list>\n        <button ion-button icon-only large block clear>\n          <ion-icon md-name="home"></ion-icon>\n        </button>\n        <button ion-button icon-only large block clear>\n          <ion-icon md-name="access_time"></ion-icon>\n        </button>\n        <button ion-button icon-only large block clear>\n          <ion-icon md-name="assignment"></ion-icon>\n        </button>\n        <button ion-button icon-only large block clear>\n          <ion-icon md-name="assignment_return"></ion-icon>\n        </button>\n        <button ion-button icon-only large block clear>\n          <ion-icon md-name="shopping_basket"></ion-icon>\n        </button>\n        <button ion-button icon-only large block clear>\n          <ion-icon md-name="show_chart"></ion-icon>\n        </button>\n        <button ion-button icon-only large block clear>\n          <ion-icon md-name="location_city"></ion-icon>\n        </button>\n        <button ion-button icon-only large block clear>\n          <ion-icon md-name="attach_money"></ion-icon>\n        </button>\n        <button ion-button icon-only large block clear>\n          <ion-icon md-name="check_box"></ion-icon>\n        </button>\n      </ion-list>\n    </ion-col>\n    <ion-col col-11>\n        <ion-nav #mainSpace [root]="rootPage1"></ion-nav>\n    </ion-col>\n  </ion-row>\n</ion-content>`/*ion-inline-end:"/home/vxsrini/Development/CEMobility/src/pages/home/home.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular_navigation_nav_controller__["a" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_nav_params__["a" /* NavParams */]])
     ], HomePage);
@@ -195,6 +196,10 @@ var HomePage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_nav_params__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js__ = __webpack_require__(412);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_chart_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_leaflet__ = __webpack_require__(459);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_leaflet___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_leaflet__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_leaflet_markercluster__ = __webpack_require__(460);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_leaflet_markercluster___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_leaflet_markercluster__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -204,6 +209,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
+
 
 
 
@@ -218,16 +225,60 @@ var Summary = (function () {
     function Summary(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.enableFilter = false;
         //this.addGraph();
     }
+    Summary.prototype.loadmap = function () {
+        this.mymap = __WEBPACK_IMPORTED_MODULE_4_leaflet___default.a.map('map').setView([39.0097, -95.844], 4);
+        __WEBPACK_IMPORTED_MODULE_4_leaflet___default.a.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+            maxZoom: 18,
+            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+                '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+            id: 'mapbox.streets'
+        }).addTo(this.mymap);
+        __WEBPACK_IMPORTED_MODULE_4_leaflet___default.a.marker([39.809734, -98.55562]).addTo(this.mymap)
+            .bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
+        var popup = __WEBPACK_IMPORTED_MODULE_4_leaflet___default.a.popup();
+        var myButtonOptions = {
+            'text': 'MyButton',
+            'iconUrl': 'images/myButton.png',
+            'onClick': function () { console.log("Clicked the button"); },
+            'hideText': true,
+            'maxWidth': 30,
+            'doToggle': false,
+            'toggleStatus': false // bool
+        };
+        var ourCustomControl = __WEBPACK_IMPORTED_MODULE_4_leaflet___default.a.Control.extend({
+            options: {
+                position: 'topright'
+                //control position - allowed: 'topleft', 'topright', 'bottomleft', 'bottomright'
+            },
+            onAdd: function (map) {
+                var container = __WEBPACK_IMPORTED_MODULE_4_leaflet___default.a.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
+                container.style.backgroundColor = 'white';
+                container.style.backgroundImage = "url(assets/imgs/logo.png)";
+                container.style.width = '30px';
+                container.style.height = '30px';
+                container.onclick = this.customFilters();
+                return container;
+            }
+        });
+        var myButton = new ourCustomControl().addTo(this.mymap);
+        var myButton1 = new ourCustomControl().addTo(this.mymap);
+    };
+    Summary.prototype.customFilters = function () {
+        this.enableFilter = true;
+    };
     Summary.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad Summary');
+        this.loadmap();
         this.barChart = new __WEBPACK_IMPORTED_MODULE_3_chart_js__["Chart"](this.barCanvas.nativeElement, {
             type: 'bar',
             data: {
                 labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
                 datasets: [{
-                        label: '# of Votes',
+                        label: '# of Sites',
                         data: [12, 19, 3, 5, 2, 3],
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
@@ -263,9 +314,13 @@ var Summary = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('barCanvas'),
         __metadata("design:type", Object)
     ], Summary.prototype, "barCanvas", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('map'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */])
+    ], Summary.prototype, "mapContainer", void 0);
     Summary = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-summary',template:/*ion-inline-start:"/home/vxsrini/Development/CoFEE/src/pages/summary/summary.html"*/`<ion-card>\n  <ion-card-header>\n    Bar Chart\n  </ion-card-header>\n  <ion-card-content>\n    <canvas #barCanvas></canvas>\n  </ion-card-content>\n</ion-card>\n\n<ion-card>\n  <ion-card-header>\n    Doughnut Chart\n  </ion-card-header>\n  <ion-card-content>\n    <canvas #doughnutCanvas></canvas>\n  </ion-card-content>\n</ion-card>\n\n<ion-card>\n  <ion-card-header>\n    Line Chart\n  </ion-card-header>\n  <ion-card-content>\n    <canvas #lineCanvas></canvas>\n  </ion-card-content>\n</ion-card>`/*ion-inline-end:"/home/vxsrini/Development/CoFEE/src/pages/summary/summary.html"*/,
+            selector: 'page-summary',template:/*ion-inline-start:"/home/vxsrini/Development/CEMobility/src/pages/summary/summary.html"*/`\n<div id="map" class="geomap"></div>\n<div id=\'selector_menu\'>\n  <select id=\'selector\'>\n    <option value=\'reset\'>Reset</option>\n    <option value=\'layer1\'>Layer 1</option>\n    <option value = \'layer2\'>Layer 2</option>\n  </select>\n</div>\n<div ng-if="enableFilter == true"><ion-card></ion-card></div>\n\n\n\n\n<ion-card class="card">\n  <ion-card-header>\n    Bar Chart\n  </ion-card-header>\n  <ion-card-content>\n    <canvas #barCanvas></canvas>\n  </ion-card-content>\n</ion-card>\n`/*ion-inline-end:"/home/vxsrini/Development/CEMobility/src/pages/summary/summary.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular_navigation_nav_controller__["a" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_nav_params__["a" /* NavParams */]])
     ], Summary);
@@ -302,10 +357,10 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_play_station_play_station__ = __webpack_require__(161);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(201);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__ = __webpack_require__(203);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_media__ = __webpack_require__(459);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_toast__ = __webpack_require__(460);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_media__ = __webpack_require__(461);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_toast__ = __webpack_require__(462);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_one_fiber_dashboard_one_fiber_dashboard__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_ionic2_material_icons__ = __webpack_require__(461);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_ionic2_material_icons__ = __webpack_require__(463);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_home_home__ = __webpack_require__(204);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_summary_summary__ = __webpack_require__(205);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -445,7 +500,7 @@ var MyApp = (function () {
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'my-app',template:/*ion-inline-start:"/home/vxsrini/Development/CoFEE/src/app/app.html"*/`<ion-menu [content]="content">\n\n  <ion-header>\n    <ion-navbar color="danger">\n      <button ion-button menuToggle>\n        <ion-icon name="menu"></ion-icon>\n      </button>\n      <ion-title text-left>CoFEE Engineering</ion-title>\n    </ion-navbar>\n    <ion-toolbar>\n      <ion-title>Pages</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>`/*ion-inline-end:"/home/vxsrini/Development/CoFEE/src/app/app.html"*/
+            selector: 'my-app',template:/*ion-inline-start:"/home/vxsrini/Development/CEMobility/src/app/app.html"*/`<ion-menu [content]="content">\n\n  <ion-header>\n    <ion-navbar color="danger">\n      <button ion-button menuToggle>\n        <ion-icon name="menu"></ion-icon>\n      </button>\n      <ion-title text-left>CoFEE Engineering</ion-title>\n    </ion-navbar>\n    <ion-toolbar>\n      <ion-title>Pages</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>`/*ion-inline-end:"/home/vxsrini/Development/CEMobility/src/app/app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* MenuController */],

@@ -25728,6 +25728,19 @@ page-home .centervert {
   justify-content: center;
 }
 
+page-home .main {
+  border: think solid black;
+  background: black;
+}
+
+page-home .menuCol {
+  background: #3C3B37;
+}
+
+page-home .row {
+  height: 100%;
+}
+
 page-edit-language .fabBtn {
   font-size: 35px;
 }
@@ -25742,4 +25755,27 @@ page-edit-language .avatar {
   color: #666;
   text-align: center;
   font: 12px Arial, sans-serif;
+}
+
+page-summary .cardTemp {
+  height: 50%;
+  width: 50%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+page-summary .geomap {
+  height: 50%;
+  width: 100%;
+  margin: auto;
+  z-index: 1;
+}
+
+page-summary #selector_menu {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 9000;
 }

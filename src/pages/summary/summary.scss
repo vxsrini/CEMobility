@@ -15,7 +15,10 @@ page-summary {
         z-index: 1;
     }
 
-    .overlay {
-        z-index: 1000;
+    #selector_menu{
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 9000;
     }
 }
