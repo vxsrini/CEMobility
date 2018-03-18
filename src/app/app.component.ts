@@ -32,6 +32,7 @@ export class MyApp {
     public statusBar: StatusBar,
     public splashScreen: SplashScreen
   ) {
+    /*
     this.sqlite = new SQLite();
     this.sqlite.create({
       name: 'yodio.db',
@@ -40,7 +41,7 @@ export class MyApp {
       this.db = db;
     }, (error) => { // This error is for Create database. If unsuccessful, the app should shutdown.
       console.error("Unable to open database", error);
-    });
+    });*/
     this.initializeApp();
 
     // set our app's pages
@@ -63,7 +64,7 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      this.db.executeSql('CREATE TABLE IF NOT EXISTS yodio_languages (id INTEGER PRIMARY KEY AUTOINCREMENT, language TEXT, logo TEXT)', {});
+      //this.db.executeSql('CREATE TABLE IF NOT EXISTS yodio_languages (id INTEGER PRIMARY KEY AUTOINCREMENT, language TEXT, logo TEXT)', {});
     });
   }
 }

@@ -6,7 +6,7 @@ webpackJsonp([1],{
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OneFiberDashboard; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__play_station_play_station__ = __webpack_require__(161);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -66,7 +66,7 @@ webpackEmptyAsyncContext.id = 119;
 
 var map = {
 	"../pages/one-fiber-dashboard/one-fiber-dashboard.module": [
-		465,
+		464,
 		0
 	]
 };
@@ -91,7 +91,7 @@ module.exports = webpackAsyncContext;
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PlayStation; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -194,11 +194,11 @@ var HomePage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular_navigation_nav_controller__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_nav_params__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js__ = __webpack_require__(412);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js__ = __webpack_require__(411);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_chart_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_leaflet__ = __webpack_require__(459);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_leaflet__ = __webpack_require__(458);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_leaflet___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_leaflet__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_leaflet_markercluster__ = __webpack_require__(460);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_leaflet_markercluster__ = __webpack_require__(459);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_leaflet_markercluster___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_leaflet_markercluster__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -225,50 +225,73 @@ var Summary = (function () {
     function Summary(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.enableFilter = false;
+        this.showFilter = false;
+        this.listObj = {
+            "header": [
+                {
+                    "group": "Technology Type",
+                    "sub_groups": [
+                        {
+                            value: "5G",
+                            type: "boolean",
+                            type_values: ["true", "false"],
+                            current_value: "true"
+                        },
+                        {
+                            value: "4G",
+                            type: "boolean",
+                            type_values: ["true", "false"],
+                            current_value: "true"
+                        }
+                    ]
+                },
+                {
+                    "group": "Site Type",
+                    "sub_groups": [
+                        {
+                            value: "Micro",
+                            type: "boolean",
+                            type_values: ["true", "false"],
+                            current_value: "true"
+                        },
+                        {
+                            value: "Macro",
+                            type: "boolean",
+                            type_values: ["true", "false"],
+                            current_value: "true"
+                        },
+                        {
+                            value: "In Building",
+                            type: "boolean",
+                            type_values: ["true", "false"],
+                            current_value: "true"
+                        }
+                    ]
+                },
+            ],
+            "data": [{}]
+        };
+        this.bounds = [
+            [39.417703, -125.711319],
+            [39.621102, -69.900772] // Northeast coordinates
+        ];
         //this.addGraph();
     }
     Summary.prototype.loadmap = function () {
-        this.mymap = __WEBPACK_IMPORTED_MODULE_4_leaflet___default.a.map('map').setView([39.0097, -95.844], 4);
+        this.mymap = __WEBPACK_IMPORTED_MODULE_4_leaflet___default.a.map('map', { maxBounds: this.bounds }).fitBounds(this.bounds);
         __WEBPACK_IMPORTED_MODULE_4_leaflet___default.a.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
             maxZoom: 18,
-            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-                '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-                'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-            id: 'mapbox.streets'
+            id: 'mapbox.streets',
+            maxBounds: this.bounds
         }).addTo(this.mymap);
-        __WEBPACK_IMPORTED_MODULE_4_leaflet___default.a.marker([39.809734, -98.55562]).addTo(this.mymap)
-            .bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
-        var popup = __WEBPACK_IMPORTED_MODULE_4_leaflet___default.a.popup();
-        var myButtonOptions = {
-            'text': 'MyButton',
-            'iconUrl': 'images/myButton.png',
-            'onClick': function () { console.log("Clicked the button"); },
-            'hideText': true,
-            'maxWidth': 30,
-            'doToggle': false,
-            'toggleStatus': false // bool
-        };
-        var ourCustomControl = __WEBPACK_IMPORTED_MODULE_4_leaflet___default.a.Control.extend({
-            options: {
-                position: 'topright'
-                //control position - allowed: 'topleft', 'topright', 'bottomleft', 'bottomright'
-            },
-            onAdd: function (map) {
-                var container = __WEBPACK_IMPORTED_MODULE_4_leaflet___default.a.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
-                container.style.backgroundColor = 'white';
-                container.style.backgroundImage = "url(assets/imgs/logo.png)";
-                container.style.width = '30px';
-                container.style.height = '30px';
-                container.onclick = this.customFilters();
-                return container;
-            }
-        });
-        var myButton = new ourCustomControl().addTo(this.mymap);
-        var myButton1 = new ourCustomControl().addTo(this.mymap);
+        /*   L.marker([39.809734, -98.55562]).addTo(this.mymap)
+             .bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
+       
+           var popup = L.popup(); */
     };
-    Summary.prototype.customFilters = function () {
-        this.enableFilter = true;
+    Summary.prototype.filterButtonHandler = function () {
+        console.log("Filter Button Handler Involked");
+        this.showFilter = !this.showFilter;
     };
     Summary.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad Summary');
@@ -320,7 +343,7 @@ var Summary = (function () {
     ], Summary.prototype, "mapContainer", void 0);
     Summary = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-summary',template:/*ion-inline-start:"/home/vxsrini/Development/CEMobility/src/pages/summary/summary.html"*/`\n<div id="map" class="geomap"></div>\n<div id=\'selector_menu\'>\n  <select id=\'selector\'>\n    <option value=\'reset\'>Reset</option>\n    <option value=\'layer1\'>Layer 1</option>\n    <option value = \'layer2\'>Layer 2</option>\n  </select>\n</div>\n<div ng-if="enableFilter == true"><ion-card></ion-card></div>\n\n\n\n\n<ion-card class="card">\n  <ion-card-header>\n    Bar Chart\n  </ion-card-header>\n  <ion-card-content>\n    <canvas #barCanvas></canvas>\n  </ion-card-content>\n</ion-card>\n`/*ion-inline-end:"/home/vxsrini/Development/CEMobility/src/pages/summary/summary.html"*/,
+            selector: 'page-summary',template:/*ion-inline-start:"/home/vxsrini/Development/CEMobility/src/pages/summary/summary.html"*/`<div id="map" class="geomap">\n  <div id="filter_button">\n    <button ion-button small color="light" id="filter_button" (click)="filterButtonHandler()">\n      <ion-icon md-name="star"></ion-icon>\n    </button>\n  </div>\n  <ion-card id="selector_menu" *ngIf="showFilter">\n    <ion-card-header>\n      <ion-navbar id="filter_header">\n        <ion-title>Filter Options</ion-title>\n      </ion-navbar>\n    </ion-card-header>\n    <ion-content id="filter_list">\n      <ion-list *ngFor="let item of listObj.header">\n        <ion-list-header>{{item.group}}</ion-list-header>\n        <ion-item id="filter_items" *ngFor="let sub_item of item.sub_groups">\n          <ion-avatar item-left> \n          </ion-avatar>\n          <ion-label>{{sub_item.value}}</ion-label>\n          <ion-checkbox [(ngModel)]="sub_item.current_value" item-right *ngIf="sub_item.type==\'boolean\'"></ion-checkbox>\n        </ion-item>\n      </ion-list>\n    </ion-content>\n  </ion-card>\n</div>\n\n<ion-card class="card">\n  <ion-card-header>\n    Bar Chart\n  </ion-card-header>\n  <ion-card-content>\n    <canvas #barCanvas></canvas>\n  </ion-card-content>\n</ion-card>`/*ion-inline-end:"/home/vxsrini/Development/CEMobility/src/pages/summary/summary.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular_navigation_nav_controller__["a" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_nav_params__["a" /* NavParams */]])
     ], Summary);
@@ -352,15 +375,15 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(402);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_play_station_play_station__ = __webpack_require__(161);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(201);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__ = __webpack_require__(203);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_media__ = __webpack_require__(461);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_toast__ = __webpack_require__(462);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_media__ = __webpack_require__(460);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_toast__ = __webpack_require__(461);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_one_fiber_dashboard_one_fiber_dashboard__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_ionic2_material_icons__ = __webpack_require__(463);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_ionic2_material_icons__ = __webpack_require__(462);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_home_home__ = __webpack_require__(204);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_summary_summary__ = __webpack_require__(205);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -434,11 +457,10 @@ var AppModule = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(201);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(203);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_sqlite__ = __webpack_require__(411);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_home_home__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(204);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -453,29 +475,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 var MyApp = (function () {
     function MyApp(platform, menu, statusBar, splashScreen) {
-        var _this = this;
         this.platform = platform;
         this.menu = menu;
         this.statusBar = statusBar;
         this.splashScreen = splashScreen;
-        this.rootPage = __WEBPACK_IMPORTED_MODULE_5__pages_home_home__["a" /* HomePage */];
-        this.sqlite = new __WEBPACK_IMPORTED_MODULE_4__ionic_native_sqlite__["a" /* SQLite */]();
+        this.rootPage = __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */];
+        /*
+        this.sqlite = new SQLite();
         this.sqlite.create({
-            name: 'yodio.db',
-            location: 'default'
-        }).then(function (db) {
-            _this.db = db;
-        }, function (error) {
-            console.error("Unable to open database", error);
-        });
+          name: 'yodio.db',
+          location: 'default'
+        }).then((db: SQLiteObject) => {
+          this.db = db;
+        }, (error) => { // This error is for Create database. If unsuccessful, the app should shutdown.
+          console.error("Unable to open database", error);
+        });*/
         this.initializeApp();
         // set our app's pages
         this.pages = [
-            { title: 'OneFiber Dashboard', component: __WEBPACK_IMPORTED_MODULE_5__pages_home_home__["a" /* HomePage */] },
-            { title: 'Site Survey', component: __WEBPACK_IMPORTED_MODULE_5__pages_home_home__["a" /* HomePage */] }
+            { title: 'OneFiber Dashboard', component: __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */] },
+            { title: 'Site Survey', component: __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */] }
         ];
     }
     MyApp.prototype.openPage = function (page) {
@@ -491,7 +512,7 @@ var MyApp = (function () {
             // Here you can do any higher level native things you might need.
             _this.statusBar.styleDefault();
             _this.splashScreen.hide();
-            _this.db.executeSql('CREATE TABLE IF NOT EXISTS yodio_languages (id INTEGER PRIMARY KEY AUTOINCREMENT, language TEXT, logo TEXT)', {});
+            //this.db.executeSql('CREATE TABLE IF NOT EXISTS yodio_languages (id INTEGER PRIMARY KEY AUTOINCREMENT, language TEXT, logo TEXT)', {});
         });
     };
     __decorate([
@@ -514,7 +535,7 @@ var MyApp = (function () {
 
 /***/ }),
 
-/***/ 440:
+/***/ 439:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -777,7 +798,7 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 440;
+webpackContext.id = 439;
 
 /***/ })
 

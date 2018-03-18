@@ -5,6 +5,7 @@ import { Chart } from 'chart.js';
 
 import L from 'leaflet';
 import 'leaflet.markercluster';
+import { Select } from 'ionic-angular';
 
 
 /**
@@ -27,7 +28,59 @@ export class Summary {
   barChart: any;
   cluster;
   mymap: any;
-  enableFilter : boolean = false;
+  showFilter: boolean = false;
+
+  listObj: any = {
+    "header": [
+      {
+        "group": "Technology Type",
+        "sub_groups": [
+          {
+            value: "5G",
+            type: "boolean",
+            type_values: ["true", "false"],
+            current_value:"true"
+          },
+          {
+            value:"4G",
+            type: "boolean",
+            type_values: ["true", "false"],
+            current_value:"true"
+          }
+        ]
+      },
+      {
+        "group": "Site Type",
+        "sub_groups": [
+          {
+            value: "Micro",
+            type: "boolean",
+            type_values: ["true", "false"],
+            current_value:"true"
+          },
+          {
+            value:"Macro",
+            type: "boolean",
+            type_values: ["true", "false"],
+            current_value:"true"
+          },
+          {
+            value:"In Building",
+            type: "boolean",
+            type_values: ["true", "false"],
+            current_value:"true"
+          }
+        ]
+      },
+
+    ],
+    "data": [{}]
+  };
+
+  bounds: any = [
+    [39.417703, -125.711319], // Southwest coordinates
+    [39.621102, -69.900772]  // Northeast coordinates
+  ];
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
@@ -35,58 +88,24 @@ export class Summary {
   }
 
   loadmap() {
-    this.mymap = L.map('map').setView([39.0097, -95.844], 4);
+    this.mymap = L.map('map', { maxBounds: this.bounds }).fitBounds(this.bounds);
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
       maxZoom: 18,
-      attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-        '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-        'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-      id: 'mapbox.streets'
+      id: 'mapbox.streets',
+      maxBounds: this.bounds
     }).addTo(this.mymap);
 
 
-    L.marker([39.809734, -98.55562]).addTo(this.mymap)
-      .bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
-
-    var popup = L.popup();
-
-
-    var myButtonOptions = {
-      'text': 'MyButton',  // string
-      'iconUrl': 'images/myButton.png',  // string
-      'onClick': function () { console.log("Clicked the button"); },  // callback function
-      'hideText': true,  // bool
-      'maxWidth': 30,  // number
-      'doToggle': false,  // bool
-      'toggleStatus': false  // bool
-    }
-
-    var ourCustomControl = L.Control.extend({
-      options: {
-        position: 'topright'
-        //control position - allowed: 'topleft', 'topright', 'bottomleft', 'bottomright'
-      },
-      onAdd: function (map) {
-        var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
-        container.style.backgroundColor = 'white';
-        container.style.backgroundImage = "url(assets/imgs/logo.png)";
-        container.style.width = '30px';
-        container.style.height = '30px';
-        container.onclick = this.customFilters();
-        return container;
-      }
-    });
-
-
-
-    var myButton = new ourCustomControl().addTo(this.mymap);
-    var myButton1 = new ourCustomControl().addTo(this.mymap);
-
+    /*   L.marker([39.809734, -98.55562]).addTo(this.mymap)
+         .bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
+   
+       var popup = L.popup(); */
 
   }
 
-  customFilters() {
-    this.enableFilter = true;
+  filterButtonHandler() {
+    console.log("Filter Button Handler Involked");
+    this.showFilter = !this.showFilter;
 
   }
 
