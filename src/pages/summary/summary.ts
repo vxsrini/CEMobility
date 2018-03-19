@@ -34,6 +34,7 @@ export class Summary {
     "header": [
       {
         "group": "Technology Type",
+        open:true,
         "sub_groups": [
           {
             value: "5G",
@@ -51,6 +52,7 @@ export class Summary {
       },
       {
         "group": "Site Type",
+        open:false,
         "sub_groups": [
           {
             value: "Micro",
@@ -107,6 +109,15 @@ export class Summary {
     console.log("Filter Button Handler Involked");
     this.showFilter = !this.showFilter;
 
+  }
+
+  toggleSection(item) {
+    this.listObj.header.forEach(element => {
+      if (element.open) {
+        element.open = !element.open;
+      }
+    });
+    item.open = !item.open;
   }
 
   ionViewDidLoad() {

@@ -25783,6 +25783,36 @@ page-summary #selector_menu {
   z-index: 9000;
 }
 
-page-summary #filter_items {
-  border: 1px;
+page-summary .accordion-list {
+  background: #f4f4f4;
+}
+
+page-summary .section {
+  background: #fff;
+  color: #000;
+  margin-bottom: 4px;
+}
+
+page-summary .section-active {
+  background: #ffc400;
+  color: #fff;
+}
+
+page-summary .child {
+  background: #e8e7e6;
+  color: #000;
+  margin-bottom: 4px;
+}
+
+page-summary .child-item {
+  background: #f3f2f1;
+  padding: 10px;
+}
+
+page-summary .label {
+  margin: 0px;
+}
+
+page-summary .list {
+  margin-bottom: 4px;
 }
