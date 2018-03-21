@@ -25783,10 +25783,21 @@ page-summary #selector_menu {
   z-index: 9000;
 }
 
-page-summary .list-avatar-page ion-note {
-  font-size: 8px;
-  -webkit-align-self: flex-start;
-  -ms-flex-item-align: start;
-  align-self: flex-start;
-  margin-top: 8px;
+page-summary .accordion-list {
+  background: #f4f4f4;
+}
+
+page-summary .section {
+  background: lightgrey;
+  color: #000;
+  margin-top: 4px;
+}
+
+page-summary .section-active {
+  background: #ffc400;
+  color: #fff;
+}
+
+page-summary .list {
+  margin-bottom: 10px;
 }

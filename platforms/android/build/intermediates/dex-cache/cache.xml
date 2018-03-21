@@ -7,7 +7,7 @@
         jumboMode="false"
         optimize="true"
         revision="25.0.1"
-        sha1="f84f2e3545fe59cf3f7c15ea8d930cc3963205c8">
+        sha1="469d4c8aa78d6ff4982ea15d5d95a0c86a69af96">
         <dex dex="/home/vxsrini/Development/CEMobility/platforms/android/build/intermediates/pre-dexed/debug/CordovaLib-unspecified-debug_6867a9d723ebe9b0446cfde1872e94b22c2ab286.jar" />
     </item>
 

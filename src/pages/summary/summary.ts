@@ -34,47 +34,64 @@ export class Summary {
     "header": [
       {
         "group": "Technology Type",
-        open:true,
+        open: true,
         "sub_groups": [
           {
             value: "5G",
             type: "boolean",
             type_values: ["true", "false"],
-            current_value:"true"
+            current_value: "true"
           },
           {
-            value:"4G",
+            value: "4G",
             type: "boolean",
             type_values: ["true", "false"],
-            current_value:"true"
+            current_value: "true"
           }
         ]
       },
       {
         "group": "Site Type",
-        open:false,
+        open: false,
         "sub_groups": [
           {
             value: "Micro",
             type: "boolean",
             type_values: ["true", "false"],
-            current_value:"true"
+            current_value: "true"
           },
           {
-            value:"Macro",
+            value: "Macro",
             type: "boolean",
             type_values: ["true", "false"],
-            current_value:"true"
+            current_value: "true"
           },
           {
-            value:"In Building",
+            value: "In Building",
             type: "boolean",
             type_values: ["true", "false"],
-            current_value:"true"
+            current_value: "true"
           }
         ]
       },
-
+      {
+        "group": "Build Type",
+        open: false,
+        "sub_groups": [
+          {
+            value: "New",
+            type: "boolean",
+            type_values: ["true", "false"],
+            current_value: "true"
+          },
+          {
+            value: "Convertion",
+            type: "boolean",
+            type_values: ["true", "false"],
+            current_value: "true"
+          }
+        ]
+      }
     ],
     "data": [{}]
   };
@@ -112,11 +129,12 @@ export class Summary {
   }
 
   toggleSection(item) {
+    /*
     this.listObj.header.forEach(element => {
       if (element.open) {
         element.open = !element.open;
       }
-    });
+    });*/
     item.open = !item.open;
   }
 

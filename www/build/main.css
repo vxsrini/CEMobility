@@ -25788,9 +25788,9 @@ page-summary .accordion-list {
 }
 
 page-summary .section {
-  background: #fff;
+  background: lightgrey;
   color: #000;
-  margin-bottom: 4px;
+  margin-top: 4px;
 }
 
 page-summary .section-active {
@@ -25798,21 +25798,6 @@ page-summary .section-active {
   color: #fff;
 }
 
-page-summary .child {
-  background: #e8e7e6;
-  color: #000;
-  margin-bottom: 4px;
-}
-
-page-summary .child-item {
-  background: #f3f2f1;
-  padding: 10px;
-}
-
-page-summary .label {
-  margin: 0px;
-}
-
 page-summary .list {
-  margin-bottom: 4px;
+  margin-bottom: 10px;
 }

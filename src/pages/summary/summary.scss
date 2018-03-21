@@ -24,35 +24,28 @@ page-summary {
         width:40%;
         z-index: 9000;
     }
+
     .accordion-list {
         background: color($colors, light);
-        //height: 50%;
     }
+
     .section {
-        background: #fff;
+        background:lightgrey;
         color: #000;
-        margin-bottom: 4px;
+        margin-top: 4px;
+        //width:100%;
     }
+
     .section-active {
         background: #ffc400;
         color: #fff;
+        //color:black;
+        //width:100%;
     }
- 
-    .child {
-        background: #e8e7e6;
-        color: #000;
-        margin-bottom: 4px;
-    }
-    .child-item {
-        background: #f3f2f1;
-        padding: 10px;
-    }
-    .label {
-        margin: 0px;
-    }
+
     .list {
-        margin-bottom: 4px;
-    }
+        margin-bottom: 10px;
+    } 
 }
 
    

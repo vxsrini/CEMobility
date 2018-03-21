@@ -18,7 +18,7 @@
           </ion-list-header>
   
           <div *ngIf="item.open">
-            <ion-item id="filter_items" *ngFor="let sub_item of item.sub_groups">
+            <ion-item id="filter_items" *ngFor="let sub_item of item.sub_groups" class="item-data">
               <ion-avatar item-left>
               </ion-avatar>
               <ion-label>{{sub_item.value}}</ion-label>

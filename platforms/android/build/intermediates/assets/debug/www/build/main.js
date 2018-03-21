@@ -230,6 +230,7 @@ var Summary = (function () {
             "header": [
                 {
                     "group": "Technology Type",
+                    open: true,
                     "sub_groups": [
                         {
                             value: "5G",
@@ -247,6 +248,7 @@ var Summary = (function () {
                 },
                 {
                     "group": "Site Type",
+                    open: false,
                     "sub_groups": [
                         {
                             value: "Micro",
@@ -268,6 +270,24 @@ var Summary = (function () {
                         }
                     ]
                 },
+                {
+                    "group": "Build Type",
+                    open: false,
+                    "sub_groups": [
+                        {
+                            value: "New",
+                            type: "boolean",
+                            type_values: ["true", "false"],
+                            current_value: "true"
+                        },
+                        {
+                            value: "Convertion",
+                            type: "boolean",
+                            type_values: ["true", "false"],
+                            current_value: "true"
+                        }
+                    ]
+                }
             ],
             "data": [{}]
         };
@@ -292,6 +312,15 @@ var Summary = (function () {
     Summary.prototype.filterButtonHandler = function () {
         console.log("Filter Button Handler Involked");
         this.showFilter = !this.showFilter;
+    };
+    Summary.prototype.toggleSection = function (item) {
+        /*
+        this.listObj.header.forEach(element => {
+          if (element.open) {
+            element.open = !element.open;
+          }
+        });*/
+        item.open = !item.open;
     };
     Summary.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad Summary');
@@ -343,7 +372,7 @@ var Summary = (function () {
     ], Summary.prototype, "mapContainer", void 0);
     Summary = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-summary',template:/*ion-inline-start:"/home/vxsrini/Development/CEMobility/src/pages/summary/summary.html"*/`<div id="map" class="geomap">\n  <div id="filter_button">\n    <button ion-button small color="light" id="filter_button" (click)="filterButtonHandler()">\n      <ion-icon md-name="star"></ion-icon>\n    </button>\n  </div>\n  <ion-card id="selector_menu" *ngIf="showFilter">\n    <ion-card-header>\n      <ion-navbar id="filter_header">\n        <ion-title>Filter Options</ion-title>\n      </ion-navbar>\n    </ion-card-header>\n    <ion-content id="filter_list">\n      <ion-list *ngFor="let item of listObj.header">\n        <ion-list-header>{{item.group}}</ion-list-header>\n        <ion-item *ngFor="let sub_item of item.sub_groups">\n          <ion-avatar item-left> \n          </ion-avatar>\n          <ion-label>{{sub_item.value}}</ion-label>\n          <ion-checkbox [(ngModel)]="sub_item.current_value" item-right *ngIf="sub_item.type==\'boolean\'"></ion-checkbox>\n        </ion-item>\n      </ion-list>\n    </ion-content>\n  </ion-card>\n</div>\n\n<ion-card class="card">\n  <ion-card-header>\n    Bar Chart\n  </ion-card-header>\n  <ion-card-content>\n    <canvas #barCanvas></canvas>\n  </ion-card-content>\n</ion-card>`/*ion-inline-end:"/home/vxsrini/Development/CEMobility/src/pages/summary/summary.html"*/,
+            selector: 'page-summary',template:/*ion-inline-start:"/home/vxsrini/Development/CEMobility/src/pages/summary/summary.html"*/`<div id="map" class="geomap">\n    <div id="filter_button">\n      <button ion-button small color="light" id="filter_button" (click)="filterButtonHandler()">\n        <ion-icon md-name="star"></ion-icon>\n      </button>\n    </div>\n  \n    <div *ngIf="showFilter" id="selector_menu">\n  \n      <ion-content>\n        <ion-list *ngFor="let item of listObj.header" class="accordion-list">\n          <ion-list-header>\n            <button ion-item (click)="toggleSection(item)" detail-none [ngClass]="{\'section-active\': item.open, \'section\': !item.open}">\n              <ion-icon item-left name="arrow-forward" *ngIf="!item.open"></ion-icon>\n              <ion-icon item-left name="arrow-down" *ngIf="item.open"></ion-icon>\n              {{item.group}}\n            </button>\n          </ion-list-header>\n  \n          <div *ngIf="item.open">\n            <ion-item id="filter_items" *ngFor="let sub_item of item.sub_groups" class="item-data">\n              <ion-avatar item-left>\n              </ion-avatar>\n              <ion-label>{{sub_item.value}}</ion-label>\n              <ion-checkbox [(ngModel)]="sub_item.current_value" item-right *ngIf="sub_item.type==\'boolean\'"></ion-checkbox>\n            </ion-item>\n          </div>\n  \n        </ion-list>\n      </ion-content>\n    </div>\n  </div>\n  \n  <ion-card class="card">\n    <ion-card-header>\n      Bar Chart\n    </ion-card-header>\n    <ion-card-content>\n      <canvas #barCanvas></canvas>\n    </ion-card-content>\n  </ion-card>`/*ion-inline-end:"/home/vxsrini/Development/CEMobility/src/pages/summary/summary.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular_navigation_nav_controller__["a" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_nav_params__["a" /* NavParams */]])
     ], Summary);
