@@ -6,7 +6,9 @@ import { Chart } from 'chart.js';
 import L from 'leaflet';
 import 'leaflet.markercluster';
 import { Select } from 'ionic-angular';
-
+import { Injectable } from '@angular/core';
+import * as PouchDB from 'pouchdb';
+import cordovaSqlitePlugin from 'pouchdb-adapter-cordova-sqlite';
 
 /**
  * Generated class for the Summary page.
@@ -29,6 +31,9 @@ export class Summary {
   cluster;
   mymap: any;
   showFilter: boolean = false;
+  private _db;
+  private _birthdays;
+
 
   listObj: any = {
     "header": [
@@ -104,6 +109,10 @@ export class Summary {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     //this.addGraph();
+
+    PouchDB.plugin(cordovaSqlitePlugin);
+    this._db = new PouchDB('birthdays.db', { adapter: 'cordova-sqlite' });
+
   }
 
   loadmap() {
@@ -128,6 +137,7 @@ export class Summary {
 
   }
 
+
   toggleSection(item) {
     /*
     this.listObj.header.forEach(element => {
@@ -151,12 +161,12 @@ export class Summary {
           label: '# of Sites',
           data: [12, 19, 3, 5, 2, 3],
           backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)',
+            'rgb(255, 206, 86)',
+            'rgb(75, 192, 192)',
+            'rgb(153, 102, 255)',
+            'rgb(255, 159, 64)'
           ],
           borderColor: [
             'rgba(255,99,132,1)',

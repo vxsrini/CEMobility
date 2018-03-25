@@ -27,6 +27,9 @@
         },
         "cordova-plugin-ionic-webview": {
             "PACKAGE_NAME": "com.ionicframework.fibermob124686"
+        },
+        "cordova-plugin-sqlite-2": {
+            "PACKAGE_NAME": "io.ionic.starter"
         }
     },
     "dependent_plugins": {}

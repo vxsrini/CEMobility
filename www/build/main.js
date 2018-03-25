@@ -1,13 +1,13 @@
 webpackJsonp([1],{
 
-/***/ 108:
+/***/ 114:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OneFiberDashboard; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__play_station_play_station__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__play_station_play_station__ = __webpack_require__(166);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -44,7 +44,7 @@ var OneFiberDashboard = (function () {
 
 /***/ }),
 
-/***/ 119:
+/***/ 124:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -57,16 +57,16 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 119;
+webpackEmptyAsyncContext.id = 124;
 
 /***/ }),
 
-/***/ 160:
+/***/ 165:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/one-fiber-dashboard/one-fiber-dashboard.module": [
-		464,
+		493,
 		0
 	]
 };
@@ -81,17 +81,17 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 160;
+webpackAsyncContext.id = 165;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 161:
+/***/ 166:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PlayStation; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -125,7 +125,7 @@ var PlayStation = (function () {
 
 /***/ }),
 
-/***/ 204:
+/***/ 209:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -133,8 +133,8 @@ var PlayStation = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular_navigation_nav_controller__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_nav_params__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__one_fiber_dashboard_one_fiber_dashboard__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__summary_summary__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__one_fiber_dashboard_one_fiber_dashboard__ = __webpack_require__(114);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__summary_summary__ = __webpack_require__(210);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -186,7 +186,7 @@ var HomePage = (function () {
 
 /***/ }),
 
-/***/ 205:
+/***/ 210:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -194,12 +194,15 @@ var HomePage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular_navigation_nav_controller__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_nav_params__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js__ = __webpack_require__(411);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js__ = __webpack_require__(428);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_chart_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_leaflet__ = __webpack_require__(458);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_leaflet__ = __webpack_require__(475);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_leaflet___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_leaflet__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_leaflet_markercluster__ = __webpack_require__(459);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_leaflet_markercluster__ = __webpack_require__(476);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_leaflet_markercluster___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_leaflet_markercluster__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_pouchdb__ = __webpack_require__(477);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_pouchdb_adapter_cordova_sqlite__ = __webpack_require__(483);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_pouchdb_adapter_cordova_sqlite___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_pouchdb_adapter_cordova_sqlite__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -215,6 +218,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 /**
  * Generated class for the Summary page.
  *
@@ -223,6 +228,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  */
 var Summary = (function () {
     function Summary(navCtrl, navParams) {
+        //this.addGraph();
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.showFilter = false;
@@ -295,7 +301,8 @@ var Summary = (function () {
             [39.417703, -125.711319],
             [39.621102, -69.900772] // Northeast coordinates
         ];
-        //this.addGraph();
+        __WEBPACK_IMPORTED_MODULE_6_pouchdb__["plugin"](__WEBPACK_IMPORTED_MODULE_7_pouchdb_adapter_cordova_sqlite___default.a);
+        this._db = new __WEBPACK_IMPORTED_MODULE_6_pouchdb__('birthdays.db', { adapter: 'cordova-sqlite' });
     }
     Summary.prototype.loadmap = function () {
         this.mymap = __WEBPACK_IMPORTED_MODULE_4_leaflet___default.a.map('map', { maxBounds: this.bounds }).fitBounds(this.bounds);
@@ -333,12 +340,12 @@ var Summary = (function () {
                         label: '# of Sites',
                         data: [12, 19, 3, 5, 2, 3],
                         backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)'
+                            'rgb(255, 99, 132)',
+                            'rgb(54, 162, 235)',
+                            'rgb(255, 206, 86)',
+                            'rgb(75, 192, 192)',
+                            'rgb(153, 102, 255)',
+                            'rgb(255, 159, 64)'
                         ],
                         borderColor: [
                             'rgba(255,99,132,1)',
@@ -372,7 +379,7 @@ var Summary = (function () {
     ], Summary.prototype, "mapContainer", void 0);
     Summary = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-summary',template:/*ion-inline-start:"/home/vxsrini/Development/CEMobility/src/pages/summary/summary.html"*/`<div id="map" class="geomap">\n    <div id="filter_button">\n      <button ion-button small color="light" id="filter_button" (click)="filterButtonHandler()">\n        <ion-icon md-name="star"></ion-icon>\n      </button>\n    </div>\n  \n    <div *ngIf="showFilter" id="selector_menu">\n  \n      <ion-content>\n        <ion-list *ngFor="let item of listObj.header" class="accordion-list">\n          <ion-list-header>\n            <button ion-item (click)="toggleSection(item)" detail-none [ngClass]="{\'section-active\': item.open, \'section\': !item.open}">\n              <ion-icon item-left name="arrow-forward" *ngIf="!item.open"></ion-icon>\n              <ion-icon item-left name="arrow-down" *ngIf="item.open"></ion-icon>\n              {{item.group}}\n            </button>\n          </ion-list-header>\n  \n          <div *ngIf="item.open">\n            <ion-item id="filter_items" *ngFor="let sub_item of item.sub_groups" class="item-data">\n              <ion-avatar item-left>\n              </ion-avatar>\n              <ion-label>{{sub_item.value}}</ion-label>\n              <ion-checkbox [(ngModel)]="sub_item.current_value" item-right *ngIf="sub_item.type==\'boolean\'"></ion-checkbox>\n            </ion-item>\n          </div>\n  \n        </ion-list>\n      </ion-content>\n    </div>\n  </div>\n  \n  <ion-card class="card">\n    <ion-card-header>\n      Bar Chart\n    </ion-card-header>\n    <ion-card-content>\n      <canvas #barCanvas></canvas>\n    </ion-card-content>\n  </ion-card>`/*ion-inline-end:"/home/vxsrini/Development/CEMobility/src/pages/summary/summary.html"*/,
+            selector: 'page-summary',template:/*ion-inline-start:"/home/vxsrini/Development/CEMobility/src/pages/summary/summary.html"*/`<div id="map" class="geomap">\n    <div id="filter_button">\n      <button ion-button small color="light" id="filter_button" (click)="filterButtonHandler()">\n        <ion-icon md-name="star"></ion-icon>\n      </button>\n    </div>\n  \n    <div *ngIf="showFilter" id="selector_menu">\n  \n      <ion-content>\n        <ion-list *ngFor="let item of listObj.header" class="accordion-list">\n          <ion-list-header>\n            <button ion-item (click)="toggleSection(item)" detail-none [ngClass]="{\'section-active\': item.open, \'section\': !item.open}">\n              <ion-icon item-left name="arrow-forward" *ngIf="!item.open"></ion-icon>\n              <ion-icon item-left name="arrow-down" *ngIf="item.open"></ion-icon>\n              {{item.group}}\n            </button>\n          </ion-list-header>\n  \n          <div *ngIf="item.open">\n            <ion-item id="filter_items" *ngFor="let sub_item of item.sub_groups" class="item-data">\n              <ion-avatar item-left>\n              </ion-avatar>\n              <ion-label>{{sub_item.value}}</ion-label>\n              <ion-checkbox [(ngModel)]="sub_item.current_value" item-right *ngIf="sub_item.type==\'boolean\'"></ion-checkbox>\n            </ion-item>\n          </div>\n  \n        </ion-list>\n      </ion-content>\n    </div>\n  </div>\n  \n  <ion-card class="data-graph">\n    <ion-card-header>\n      Bar Chart\n    </ion-card-header>\n    <ion-card-content>\n      <canvas #barCanvas></canvas>\n    </ion-card-content>\n  </ion-card>`/*ion-inline-end:"/home/vxsrini/Development/CEMobility/src/pages/summary/summary.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular_navigation_nav_controller__["a" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_nav_params__["a" /* NavParams */]])
     ], Summary);
@@ -383,13 +390,13 @@ var Summary = (function () {
 
 /***/ }),
 
-/***/ 335:
+/***/ 352:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(336);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(359);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(353);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(376);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -397,24 +404,24 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 359:
+/***/ 376:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(402);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_play_station_play_station__ = __webpack_require__(161);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(201);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__ = __webpack_require__(203);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_media__ = __webpack_require__(460);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_toast__ = __webpack_require__(461);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_one_fiber_dashboard_one_fiber_dashboard__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_ionic2_material_icons__ = __webpack_require__(462);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_home_home__ = __webpack_require__(204);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_summary_summary__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(419);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_play_station_play_station__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(206);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__ = __webpack_require__(208);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_media__ = __webpack_require__(489);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_toast__ = __webpack_require__(490);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_one_fiber_dashboard_one_fiber_dashboard__ = __webpack_require__(114);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_ionic2_material_icons__ = __webpack_require__(491);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_home_home__ = __webpack_require__(209);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_summary_summary__ = __webpack_require__(210);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -480,16 +487,16 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 402:
+/***/ 419:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(201);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(203);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(206);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(208);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(209);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -564,254 +571,254 @@ var MyApp = (function () {
 
 /***/ }),
 
-/***/ 439:
+/***/ 456:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./af": 212,
-	"./af.js": 212,
-	"./ar": 213,
-	"./ar-dz": 214,
-	"./ar-dz.js": 214,
-	"./ar-kw": 215,
-	"./ar-kw.js": 215,
-	"./ar-ly": 216,
-	"./ar-ly.js": 216,
-	"./ar-ma": 217,
-	"./ar-ma.js": 217,
-	"./ar-sa": 218,
-	"./ar-sa.js": 218,
-	"./ar-tn": 219,
-	"./ar-tn.js": 219,
-	"./ar.js": 213,
-	"./az": 220,
-	"./az.js": 220,
-	"./be": 221,
-	"./be.js": 221,
-	"./bg": 222,
-	"./bg.js": 222,
-	"./bm": 223,
-	"./bm.js": 223,
-	"./bn": 224,
-	"./bn.js": 224,
-	"./bo": 225,
-	"./bo.js": 225,
-	"./br": 226,
-	"./br.js": 226,
-	"./bs": 227,
-	"./bs.js": 227,
-	"./ca": 228,
-	"./ca.js": 228,
-	"./cs": 229,
-	"./cs.js": 229,
-	"./cv": 230,
-	"./cv.js": 230,
-	"./cy": 231,
-	"./cy.js": 231,
-	"./da": 232,
-	"./da.js": 232,
-	"./de": 233,
-	"./de-at": 234,
-	"./de-at.js": 234,
-	"./de-ch": 235,
-	"./de-ch.js": 235,
-	"./de.js": 233,
-	"./dv": 236,
-	"./dv.js": 236,
-	"./el": 237,
-	"./el.js": 237,
-	"./en-au": 238,
-	"./en-au.js": 238,
-	"./en-ca": 239,
-	"./en-ca.js": 239,
-	"./en-gb": 240,
-	"./en-gb.js": 240,
-	"./en-ie": 241,
-	"./en-ie.js": 241,
-	"./en-il": 242,
-	"./en-il.js": 242,
-	"./en-nz": 243,
-	"./en-nz.js": 243,
-	"./eo": 244,
-	"./eo.js": 244,
-	"./es": 245,
-	"./es-do": 246,
-	"./es-do.js": 246,
-	"./es-us": 247,
-	"./es-us.js": 247,
-	"./es.js": 245,
-	"./et": 248,
-	"./et.js": 248,
-	"./eu": 249,
-	"./eu.js": 249,
-	"./fa": 250,
-	"./fa.js": 250,
-	"./fi": 251,
-	"./fi.js": 251,
-	"./fo": 252,
-	"./fo.js": 252,
-	"./fr": 253,
-	"./fr-ca": 254,
-	"./fr-ca.js": 254,
-	"./fr-ch": 255,
-	"./fr-ch.js": 255,
-	"./fr.js": 253,
-	"./fy": 256,
-	"./fy.js": 256,
-	"./gd": 257,
-	"./gd.js": 257,
-	"./gl": 258,
-	"./gl.js": 258,
-	"./gom-latn": 259,
-	"./gom-latn.js": 259,
-	"./gu": 260,
-	"./gu.js": 260,
-	"./he": 261,
-	"./he.js": 261,
-	"./hi": 262,
-	"./hi.js": 262,
-	"./hr": 263,
-	"./hr.js": 263,
-	"./hu": 264,
-	"./hu.js": 264,
-	"./hy-am": 265,
-	"./hy-am.js": 265,
-	"./id": 266,
-	"./id.js": 266,
-	"./is": 267,
-	"./is.js": 267,
-	"./it": 268,
-	"./it.js": 268,
-	"./ja": 269,
-	"./ja.js": 269,
-	"./jv": 270,
-	"./jv.js": 270,
-	"./ka": 271,
-	"./ka.js": 271,
-	"./kk": 272,
-	"./kk.js": 272,
-	"./km": 273,
-	"./km.js": 273,
-	"./kn": 274,
-	"./kn.js": 274,
-	"./ko": 275,
-	"./ko.js": 275,
-	"./ky": 276,
-	"./ky.js": 276,
-	"./lb": 277,
-	"./lb.js": 277,
-	"./lo": 278,
-	"./lo.js": 278,
-	"./lt": 279,
-	"./lt.js": 279,
-	"./lv": 280,
-	"./lv.js": 280,
-	"./me": 281,
-	"./me.js": 281,
-	"./mi": 282,
-	"./mi.js": 282,
-	"./mk": 283,
-	"./mk.js": 283,
-	"./ml": 284,
-	"./ml.js": 284,
-	"./mr": 285,
-	"./mr.js": 285,
-	"./ms": 286,
-	"./ms-my": 287,
-	"./ms-my.js": 287,
-	"./ms.js": 286,
-	"./mt": 288,
-	"./mt.js": 288,
-	"./my": 289,
-	"./my.js": 289,
-	"./nb": 290,
-	"./nb.js": 290,
-	"./ne": 291,
-	"./ne.js": 291,
-	"./nl": 292,
-	"./nl-be": 293,
-	"./nl-be.js": 293,
-	"./nl.js": 292,
-	"./nn": 294,
-	"./nn.js": 294,
-	"./pa-in": 295,
-	"./pa-in.js": 295,
-	"./pl": 296,
-	"./pl.js": 296,
-	"./pt": 297,
-	"./pt-br": 298,
-	"./pt-br.js": 298,
-	"./pt.js": 297,
-	"./ro": 299,
-	"./ro.js": 299,
-	"./ru": 300,
-	"./ru.js": 300,
-	"./sd": 301,
-	"./sd.js": 301,
-	"./se": 302,
-	"./se.js": 302,
-	"./si": 303,
-	"./si.js": 303,
-	"./sk": 304,
-	"./sk.js": 304,
-	"./sl": 305,
-	"./sl.js": 305,
-	"./sq": 306,
-	"./sq.js": 306,
-	"./sr": 307,
-	"./sr-cyrl": 308,
-	"./sr-cyrl.js": 308,
-	"./sr.js": 307,
-	"./ss": 309,
-	"./ss.js": 309,
-	"./sv": 310,
-	"./sv.js": 310,
-	"./sw": 311,
-	"./sw.js": 311,
-	"./ta": 312,
-	"./ta.js": 312,
-	"./te": 313,
-	"./te.js": 313,
-	"./tet": 314,
-	"./tet.js": 314,
-	"./tg": 315,
-	"./tg.js": 315,
-	"./th": 316,
-	"./th.js": 316,
-	"./tl-ph": 317,
-	"./tl-ph.js": 317,
-	"./tlh": 318,
-	"./tlh.js": 318,
-	"./tr": 319,
-	"./tr.js": 319,
-	"./tzl": 320,
-	"./tzl.js": 320,
-	"./tzm": 321,
-	"./tzm-latn": 322,
-	"./tzm-latn.js": 322,
-	"./tzm.js": 321,
-	"./ug-cn": 323,
-	"./ug-cn.js": 323,
-	"./uk": 324,
-	"./uk.js": 324,
-	"./ur": 325,
-	"./ur.js": 325,
-	"./uz": 326,
-	"./uz-latn": 327,
-	"./uz-latn.js": 327,
-	"./uz.js": 326,
-	"./vi": 328,
-	"./vi.js": 328,
-	"./x-pseudo": 329,
-	"./x-pseudo.js": 329,
-	"./yo": 330,
-	"./yo.js": 330,
-	"./zh-cn": 331,
-	"./zh-cn.js": 331,
-	"./zh-hk": 332,
-	"./zh-hk.js": 332,
-	"./zh-tw": 333,
-	"./zh-tw.js": 333
+	"./af": 217,
+	"./af.js": 217,
+	"./ar": 218,
+	"./ar-dz": 219,
+	"./ar-dz.js": 219,
+	"./ar-kw": 220,
+	"./ar-kw.js": 220,
+	"./ar-ly": 221,
+	"./ar-ly.js": 221,
+	"./ar-ma": 222,
+	"./ar-ma.js": 222,
+	"./ar-sa": 223,
+	"./ar-sa.js": 223,
+	"./ar-tn": 224,
+	"./ar-tn.js": 224,
+	"./ar.js": 218,
+	"./az": 225,
+	"./az.js": 225,
+	"./be": 226,
+	"./be.js": 226,
+	"./bg": 227,
+	"./bg.js": 227,
+	"./bm": 228,
+	"./bm.js": 228,
+	"./bn": 229,
+	"./bn.js": 229,
+	"./bo": 230,
+	"./bo.js": 230,
+	"./br": 231,
+	"./br.js": 231,
+	"./bs": 232,
+	"./bs.js": 232,
+	"./ca": 233,
+	"./ca.js": 233,
+	"./cs": 234,
+	"./cs.js": 234,
+	"./cv": 235,
+	"./cv.js": 235,
+	"./cy": 236,
+	"./cy.js": 236,
+	"./da": 237,
+	"./da.js": 237,
+	"./de": 238,
+	"./de-at": 239,
+	"./de-at.js": 239,
+	"./de-ch": 240,
+	"./de-ch.js": 240,
+	"./de.js": 238,
+	"./dv": 241,
+	"./dv.js": 241,
+	"./el": 242,
+	"./el.js": 242,
+	"./en-au": 243,
+	"./en-au.js": 243,
+	"./en-ca": 244,
+	"./en-ca.js": 244,
+	"./en-gb": 245,
+	"./en-gb.js": 245,
+	"./en-ie": 246,
+	"./en-ie.js": 246,
+	"./en-il": 247,
+	"./en-il.js": 247,
+	"./en-nz": 248,
+	"./en-nz.js": 248,
+	"./eo": 249,
+	"./eo.js": 249,
+	"./es": 250,
+	"./es-do": 251,
+	"./es-do.js": 251,
+	"./es-us": 252,
+	"./es-us.js": 252,
+	"./es.js": 250,
+	"./et": 253,
+	"./et.js": 253,
+	"./eu": 254,
+	"./eu.js": 254,
+	"./fa": 255,
+	"./fa.js": 255,
+	"./fi": 256,
+	"./fi.js": 256,
+	"./fo": 257,
+	"./fo.js": 257,
+	"./fr": 258,
+	"./fr-ca": 259,
+	"./fr-ca.js": 259,
+	"./fr-ch": 260,
+	"./fr-ch.js": 260,
+	"./fr.js": 258,
+	"./fy": 261,
+	"./fy.js": 261,
+	"./gd": 262,
+	"./gd.js": 262,
+	"./gl": 263,
+	"./gl.js": 263,
+	"./gom-latn": 264,
+	"./gom-latn.js": 264,
+	"./gu": 265,
+	"./gu.js": 265,
+	"./he": 266,
+	"./he.js": 266,
+	"./hi": 267,
+	"./hi.js": 267,
+	"./hr": 268,
+	"./hr.js": 268,
+	"./hu": 269,
+	"./hu.js": 269,
+	"./hy-am": 270,
+	"./hy-am.js": 270,
+	"./id": 271,
+	"./id.js": 271,
+	"./is": 272,
+	"./is.js": 272,
+	"./it": 273,
+	"./it.js": 273,
+	"./ja": 274,
+	"./ja.js": 274,
+	"./jv": 275,
+	"./jv.js": 275,
+	"./ka": 276,
+	"./ka.js": 276,
+	"./kk": 277,
+	"./kk.js": 277,
+	"./km": 278,
+	"./km.js": 278,
+	"./kn": 279,
+	"./kn.js": 279,
+	"./ko": 280,
+	"./ko.js": 280,
+	"./ky": 281,
+	"./ky.js": 281,
+	"./lb": 282,
+	"./lb.js": 282,
+	"./lo": 283,
+	"./lo.js": 283,
+	"./lt": 284,
+	"./lt.js": 284,
+	"./lv": 285,
+	"./lv.js": 285,
+	"./me": 286,
+	"./me.js": 286,
+	"./mi": 287,
+	"./mi.js": 287,
+	"./mk": 288,
+	"./mk.js": 288,
+	"./ml": 289,
+	"./ml.js": 289,
+	"./mr": 290,
+	"./mr.js": 290,
+	"./ms": 291,
+	"./ms-my": 292,
+	"./ms-my.js": 292,
+	"./ms.js": 291,
+	"./mt": 293,
+	"./mt.js": 293,
+	"./my": 294,
+	"./my.js": 294,
+	"./nb": 295,
+	"./nb.js": 295,
+	"./ne": 296,
+	"./ne.js": 296,
+	"./nl": 297,
+	"./nl-be": 298,
+	"./nl-be.js": 298,
+	"./nl.js": 297,
+	"./nn": 299,
+	"./nn.js": 299,
+	"./pa-in": 300,
+	"./pa-in.js": 300,
+	"./pl": 301,
+	"./pl.js": 301,
+	"./pt": 302,
+	"./pt-br": 303,
+	"./pt-br.js": 303,
+	"./pt.js": 302,
+	"./ro": 304,
+	"./ro.js": 304,
+	"./ru": 305,
+	"./ru.js": 305,
+	"./sd": 306,
+	"./sd.js": 306,
+	"./se": 307,
+	"./se.js": 307,
+	"./si": 308,
+	"./si.js": 308,
+	"./sk": 309,
+	"./sk.js": 309,
+	"./sl": 310,
+	"./sl.js": 310,
+	"./sq": 311,
+	"./sq.js": 311,
+	"./sr": 312,
+	"./sr-cyrl": 313,
+	"./sr-cyrl.js": 313,
+	"./sr.js": 312,
+	"./ss": 314,
+	"./ss.js": 314,
+	"./sv": 315,
+	"./sv.js": 315,
+	"./sw": 316,
+	"./sw.js": 316,
+	"./ta": 317,
+	"./ta.js": 317,
+	"./te": 318,
+	"./te.js": 318,
+	"./tet": 319,
+	"./tet.js": 319,
+	"./tg": 320,
+	"./tg.js": 320,
+	"./th": 321,
+	"./th.js": 321,
+	"./tl-ph": 322,
+	"./tl-ph.js": 322,
+	"./tlh": 323,
+	"./tlh.js": 323,
+	"./tr": 324,
+	"./tr.js": 324,
+	"./tzl": 325,
+	"./tzl.js": 325,
+	"./tzm": 326,
+	"./tzm-latn": 327,
+	"./tzm-latn.js": 327,
+	"./tzm.js": 326,
+	"./ug-cn": 328,
+	"./ug-cn.js": 328,
+	"./uk": 329,
+	"./uk.js": 329,
+	"./ur": 330,
+	"./ur.js": 330,
+	"./uz": 331,
+	"./uz-latn": 332,
+	"./uz-latn.js": 332,
+	"./uz.js": 331,
+	"./vi": 333,
+	"./vi.js": 333,
+	"./x-pseudo": 334,
+	"./x-pseudo.js": 334,
+	"./yo": 335,
+	"./yo.js": 335,
+	"./zh-cn": 336,
+	"./zh-cn.js": 336,
+	"./zh-hk": 337,
+	"./zh-hk.js": 337,
+	"./zh-tw": 338,
+	"./zh-tw.js": 338
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -827,9 +834,9 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 439;
+webpackContext.id = 456;
 
 /***/ })
 
-},[335]);
+},[352]);
 //# sourceMappingURL=main.js.map

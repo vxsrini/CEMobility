@@ -25801,3 +25801,10 @@ page-summary .section-active {
 page-summary .list {
   margin-bottom: 10px;
 }
+
+page-summary .data-graph {
+  height: 50%;
+  width: 50%;
+  margin: 1%;
+  border: brown;
+}
