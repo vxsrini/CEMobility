@@ -2,12 +2,14 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController } from 'ionic-angular/navigation/nav-controller';
 import { NavParams } from 'ionic-angular/navigation/nav-params';
 import { Chart } from 'chart.js';
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
 
 import L from 'leaflet';
 import 'leaflet.markercluster';
 import { Select } from 'ionic-angular';
 import { Injectable } from '@angular/core';
-import * as PouchDB from 'pouchdb';
+import PouchDB from 'pouchdb';
 import cordovaSqlitePlugin from 'pouchdb-adapter-cordova-sqlite';
 
 /**
@@ -32,74 +34,8 @@ export class Summary {
   mymap: any;
   showFilter: boolean = false;
   private _db;
-  private _birthdays;
 
-
-  listObj: any = {
-    "header": [
-      {
-        "group": "Technology Type",
-        open: true,
-        "sub_groups": [
-          {
-            value: "5G",
-            type: "boolean",
-            type_values: ["true", "false"],
-            current_value: "true"
-          },
-          {
-            value: "4G",
-            type: "boolean",
-            type_values: ["true", "false"],
-            current_value: "true"
-          }
-        ]
-      },
-      {
-        "group": "Site Type",
-        open: false,
-        "sub_groups": [
-          {
-            value: "Micro",
-            type: "boolean",
-            type_values: ["true", "false"],
-            current_value: "true"
-          },
-          {
-            value: "Macro",
-            type: "boolean",
-            type_values: ["true", "false"],
-            current_value: "true"
-          },
-          {
-            value: "In Building",
-            type: "boolean",
-            type_values: ["true", "false"],
-            current_value: "true"
-          }
-        ]
-      },
-      {
-        "group": "Build Type",
-        open: false,
-        "sub_groups": [
-          {
-            value: "New",
-            type: "boolean",
-            type_values: ["true", "false"],
-            current_value: "true"
-          },
-          {
-            value: "Convertion",
-            type: "boolean",
-            type_values: ["true", "false"],
-            current_value: "true"
-          }
-        ]
-      }
-    ],
-    "data": [{}]
-  };
+  listObj: any;
 
   bounds: any = [
     [39.417703, -125.711319], // Southwest coordinates
@@ -107,12 +43,21 @@ export class Summary {
   ];
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
     //this.addGraph();
 
-    PouchDB.plugin(cordovaSqlitePlugin);
-    this._db = new PouchDB('birthdays.db', { adapter: 'cordova-sqlite' });
+    this.http.get('http://vxsrini-laptop:3000/getFilterForSummary').map(res => res.json()).subscribe(
+      data => {
+        console.log(JSON.stringify(data));
+        this.listObj = data;
+      },
+      err => {
+        console.log("Error Initiating - Could not obtain necessary data");
+      }
+    );
 
+    PouchDB.plugin(cordovaSqlitePlugin);
+    this._db = new PouchDB('cofee.db', { adapter: 'cordova-sqlite' });
   }
 
   loadmap() {
@@ -152,44 +97,17 @@ export class Summary {
     console.log('ionViewDidLoad Summary');
     this.loadmap();
 
-    this.barChart = new Chart(this.barCanvas.nativeElement, {
-
-      type: 'bar',
-      data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-        datasets: [{
-          label: '# of Sites',
-          data: [12, 19, 3, 5, 2, 3],
-          backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-            'rgb(255, 206, 86)',
-            'rgb(75, 192, 192)',
-            'rgb(153, 102, 255)',
-            'rgb(255, 159, 64)'
-          ],
-          borderColor: [
-            'rgba(255,99,132,1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-          ],
-          borderWidth: 1
-        }]
+    this.http.get('http://vxsrini-laptop:3000/getDataForSites').map(res => res.json()).subscribe(
+      data => {
+        console.log(JSON.stringify(data));
+        this.barChart = new Chart(this.barCanvas.nativeElement, {
+          "type": "bar",
+          "data": data
+        });
       },
-      options: {
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true
-            }
-          }]
-        }
+      err => {
+        console.log("Error Initiating - Could not obtain necessary data for sites");
       }
-
-    });
+    );
   }
-
 }
