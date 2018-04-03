@@ -3,14 +3,15 @@ import { NavController } from 'ionic-angular/navigation/nav-controller';
 import { NavParams } from 'ionic-angular/navigation/nav-params';
 import { Chart } from 'chart.js';
 import { Http } from '@angular/http';
+import {GoogleCharts} from 'google-charts';
 import 'rxjs/add/operator/map';
 
 import L from 'leaflet';
 import 'leaflet.markercluster';
 import { Select } from 'ionic-angular';
 import { Injectable } from '@angular/core';
-import PouchDB from 'pouchdb';
-import cordovaSqlitePlugin from 'pouchdb-adapter-cordova-sqlite';
+//import PouchDB from 'pouchdb';
+//import cordovaSqlitePlugin from 'pouchdb-adapter-cordova-sqlite';
 
 /**
  * Generated class for the Summary page.
@@ -26,6 +27,7 @@ import cordovaSqlitePlugin from 'pouchdb-adapter-cordova-sqlite';
 export class Summary {
 
   @ViewChild('barCanvas') barCanvas;
+  @ViewChild('chart1') chart1;
   @ViewChild('map') mapContainer: ElementRef;
 
 
@@ -46,7 +48,9 @@ export class Summary {
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
     //this.addGraph();
 
-    this.http.get('http://vxsrini-laptop:3000/getFilterForSummary').map(res => res.json()).subscribe(
+    GoogleCharts.load(this.drawChart);
+
+    this.http.get('http://vxsrini-desktop:3000/getFilterForSummary').map(res => res.json()).subscribe(
       data => {
         console.log(JSON.stringify(data));
         this.listObj = data;
@@ -56,8 +60,8 @@ export class Summary {
       }
     );
 
-    PouchDB.plugin(cordovaSqlitePlugin);
-    this._db = new PouchDB('cofee.db', { adapter: 'cordova-sqlite' });
+ /*   PouchDB.plugin(cordovaSqlitePlugin);
+    this._db = new PouchDB('cofee.db', { adapter: 'cordova-sqlite' }); */
   }
 
   loadmap() {
@@ -97,17 +101,33 @@ export class Summary {
     console.log('ionViewDidLoad Summary');
     this.loadmap();
 
-    this.http.get('http://vxsrini-laptop:3000/getDataForSites').map(res => res.json()).subscribe(
+    /*this.http.get('http://vxsrini-desktop:3000/getDataForSites').map(res => res.json()).subscribe(
       data => {
         console.log(JSON.stringify(data));
         this.barChart = new Chart(this.barCanvas.nativeElement, {
           "type": "bar",
           "data": data
         });
+
+        this.drawChart();
       },
       err => {
         console.log("Error Initiating - Could not obtain necessary data for sites");
       }
-    );
+    );*/
+    this.drawChart();
   }
+
+  drawChart() {
+ 
+    // Standard google charts functionality is available as GoogleCharts.api after load
+    const data = GoogleCharts.api.visualization.arrayToDataTable([
+        ['Chart thing', 'Chart amount'],
+        ['Lorem ipsum', 60],
+        ['Dolor sit', 22],
+        ['Sit amet', 18]
+    ]);
+    const pie_1_chart = new GoogleCharts.api.visualization.PieChart(document.getElementById('chart1'));
+    pie_1_chart.draw(data);
+}
 }
