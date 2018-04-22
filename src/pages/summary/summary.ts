@@ -56,7 +56,7 @@ export class Summary extends GoogleChartComponent {
 
     //GoogleCharts.load(this.drawChart);
 
-    this.http.get('http://vxsrini-laptop:3000/getFilterForSummary').map(res => res.json()).subscribe(
+    this.http.get('http://vxsrini-desktop:3000/getFilterForSummary').map(res => res.json()).subscribe(
       data => {
         console.log(JSON.stringify(data));
         this.listObj = data;
@@ -110,13 +110,6 @@ export class Summary extends GoogleChartComponent {
 
   drawGraph() {
     console.log("DrawGraph Evolution...");
-    /*this.data = this.createDataTable([
-      ['Evolution', 'Imports', 'Exports'],
-      ['A', 8695000, 6422800],
-      ['B', 3792000, 3694000],
-      ['C', 8175000, 800800]
-    ]);*/
-
     this.data =  this.getGoogle().visualization.arrayToDataTable([
       ['Evolution', 'Imports', 'Exports'],
       ['A', 8695000, 6422800],
@@ -136,9 +129,10 @@ export class Summary extends GoogleChartComponent {
       }
     };
 
-    
+    var goog = this.getGoogle();
+    this.chart = new goog.visualization.BarChart(document.getElementById('POR'));
 
-    this.chart = this.createBarChart(document.getElementById('POR'));
+    //this.chart = this.createBarChart(document.getElementById('POR'));
     this.chart.draw(this.data, this.options);
   }
 

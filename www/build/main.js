@@ -195,7 +195,7 @@ var HomePage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular_navigation_nav_controller__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_nav_params__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(194);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__GoogleChartComponent__ = __webpack_require__(285);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__GoogleChartComponent__ = __webpack_require__(276);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(277);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_leaflet__ = __webpack_require__(278);
@@ -254,7 +254,7 @@ var Summary = (function (_super) {
             [39.621102, -69.900772] // Northeast coordinates
         ];
         //GoogleCharts.load(this.drawChart);
-        _this.http.get('http://vxsrini-laptop:3000/getFilterForSummary').map(function (res) { return res.json(); }).subscribe(function (data) {
+        _this.http.get('http://vxsrini-desktop:3000/getFilterForSummary').map(function (res) { return res.json(); }).subscribe(function (data) {
             console.log(JSON.stringify(data));
             _this.listObj = data;
         }, function (err) {
@@ -295,12 +295,6 @@ var Summary = (function (_super) {
     };
     Summary.prototype.drawGraph = function () {
         console.log("DrawGraph Evolution...");
-        /*this.data = this.createDataTable([
-          ['Evolution', 'Imports', 'Exports'],
-          ['A', 8695000, 6422800],
-          ['B', 3792000, 3694000],
-          ['C', 8175000, 800800]
-        ]);*/
         this.data = this.getGoogle().visualization.arrayToDataTable([
             ['Evolution', 'Imports', 'Exports'],
             ['A', 8695000, 6422800],
@@ -318,7 +312,9 @@ var Summary = (function (_super) {
                 title: 'Members'
             }
         };
-        this.chart = this.createBarChart(document.getElementById('POR'));
+        var goog = this.getGoogle();
+        this.chart = new goog.visualization.BarChart(document.getElementById('POR'));
+        //this.chart = this.createBarChart(document.getElementById('POR'));
         this.chart.draw(this.data, this.options);
     };
     __decorate([
@@ -527,7 +523,7 @@ var MyApp = (function () {
 
 /***/ }),
 
-/***/ 285:
+/***/ 276:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
