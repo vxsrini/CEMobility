@@ -195,13 +195,23 @@ var HomePage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular_navigation_nav_controller__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_nav_params__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(194);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_google_charts__ = __webpack_require__(276);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__GoogleChartComponent__ = __webpack_require__(285);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(277);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_leaflet__ = __webpack_require__(278);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_leaflet___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_leaflet__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_leaflet_markercluster__ = __webpack_require__(279);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_leaflet_markercluster___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_leaflet_markercluster__);
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -214,7 +224,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+//import { Chart } from 'chart.js';
 
+//import { GoogleCharts } from 'google-charts';
 
 
 
@@ -227,25 +239,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var Summary = (function () {
+var Summary = (function (_super) {
+    __extends(Summary, _super);
     function Summary(navCtrl, navParams, http) {
+        var _this = 
         //this.addGraph();
-        var _this = this;
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.http = http;
-        this.showFilter = false;
-        this.bounds = [
+        _super.call(this) || this;
+        _this.navCtrl = navCtrl;
+        _this.navParams = navParams;
+        _this.http = http;
+        _this.showFilter = false;
+        _this.bounds = [
             [39.417703, -125.711319],
             [39.621102, -69.900772] // Northeast coordinates
         ];
-        __WEBPACK_IMPORTED_MODULE_4_google_charts__["a" /* GoogleCharts */].load(this.drawChart);
-        this.http.get('http://vxsrini-desktop:3000/getFilterForSummary').map(function (res) { return res.json(); }).subscribe(function (data) {
+        //GoogleCharts.load(this.drawChart);
+        _this.http.get('http://vxsrini-laptop:3000/getFilterForSummary').map(function (res) { return res.json(); }).subscribe(function (data) {
             console.log(JSON.stringify(data));
             _this.listObj = data;
         }, function (err) {
             console.log("Error Initiating - Could not obtain necessary data");
         });
+        return _this;
         /*   PouchDB.plugin(cordovaSqlitePlugin);
            this._db = new PouchDB('cofee.db', { adapter: 'cordova-sqlite' }); */
     }
@@ -277,53 +292,52 @@ var Summary = (function () {
     Summary.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad Summary');
         this.loadmap();
-        /*this.http.get('http://vxsrini-desktop:3000/getDataForSites').map(res => res.json()).subscribe(
-          data => {
-            console.log(JSON.stringify(data));
-            this.barChart = new Chart(this.barCanvas.nativeElement, {
-              "type": "bar",
-              "data": data
-            });
-    
-            this.drawChart();
-          },
-          err => {
-            console.log("Error Initiating - Could not obtain necessary data for sites");
-          }
-        );*/
-        this.drawChart();
     };
-    Summary.prototype.drawChart = function () {
-        // Standard google charts functionality is available as GoogleCharts.api after load
-        var data = __WEBPACK_IMPORTED_MODULE_4_google_charts__["a" /* GoogleCharts */].api.visualization.arrayToDataTable([
-            ['Chart thing', 'Chart amount'],
-            ['Lorem ipsum', 60],
-            ['Dolor sit', 22],
-            ['Sit amet', 18]
+    Summary.prototype.drawGraph = function () {
+        console.log("DrawGraph Evolution...");
+        /*this.data = this.createDataTable([
+          ['Evolution', 'Imports', 'Exports'],
+          ['A', 8695000, 6422800],
+          ['B', 3792000, 3694000],
+          ['C', 8175000, 800800]
+        ]);*/
+        this.data = this.getGoogle().visualization.arrayToDataTable([
+            ['Evolution', 'Imports', 'Exports'],
+            ['A', 8695000, 6422800],
+            ['B', 3792000, 3694000],
+            ['C', 8175000, 800800]
         ]);
-        var pie_1_chart = new __WEBPACK_IMPORTED_MODULE_4_google_charts__["a" /* GoogleCharts */].api.visualization.PieChart(document.getElementById('chart1'));
-        pie_1_chart.draw(data);
+        this.options = {
+            title: 'Evolution, 2014',
+            chartArea: { width: '70%' },
+            hAxis: {
+                title: 'Value in USD',
+                minValue: 0
+            },
+            vAxis: {
+                title: 'Members'
+            }
+        };
+        this.chart = this.createBarChart(document.getElementById('POR'));
+        this.chart.draw(this.data, this.options);
     };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('barCanvas'),
-        __metadata("design:type", Object)
-    ], Summary.prototype, "barCanvas", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('chart1'),
         __metadata("design:type", Object)
     ], Summary.prototype, "chart1", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('map'),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */])
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */]) === "function" && _a || Object)
     ], Summary.prototype, "mapContainer", void 0);
     Summary = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-summary',template:/*ion-inline-start:"/home/vxsrini/Development/CEMobility/src/pages/summary/summary.html"*/`<div id="map" class="geomap">\n    <div id="filter_button">\n      <button ion-button small color="light" id="filter_button" (click)="filterButtonHandler()">\n        <ion-icon md-name="star"></ion-icon>\n      </button>\n    </div>\n  \n    <div *ngIf="showFilter" id="selector_menu">\n  \n      <ion-content>\n        <ion-list *ngFor="let item of listObj.header" class="accordion-list">\n          <ion-list-header>\n            <button ion-item (click)="toggleSection(item)" detail-none [ngClass]="{\'section-active\': item.open, \'section\': !item.open}">\n              <ion-icon item-left name="arrow-forward" *ngIf="!item.open"></ion-icon>\n              <ion-icon item-left name="arrow-down" *ngIf="item.open"></ion-icon>\n              {{item.group}}\n            </button>\n          </ion-list-header>\n  \n          <div *ngIf="item.open">\n            <ion-item id="filter_items" *ngFor="let sub_item of item.sub_groups" class="item-data">\n              <ion-avatar item-left>\n              </ion-avatar>\n              <ion-label>{{sub_item.value}}</ion-label>\n              <ion-checkbox [(ngModel)]="sub_item.current_value" item-right *ngIf="sub_item.type==\'boolean\'"></ion-checkbox>\n            </ion-item>\n          </div>\n  \n        </ion-list>\n      </ion-content>\n    </div>\n  </div>\n  \n  <ion-card class="data-graph">\n    <ion-card-header>\n      Bar Chart\n    </ion-card-header>\n    <ion-card-content>\n      <canvas #barCanvas></canvas>\n    </ion-card-content>\n  </ion-card>\n\n  <ion-card class="data-graph">\n    <ion-card-header>\n      Google Chart\n    </ion-card-header>\n    <ion-card-content>\n      <canvas id="chart1"></canvas>\n    </ion-card-content>\n  </ion-card>`/*ion-inline-end:"/home/vxsrini/Development/CEMobility/src/pages/summary/summary.html"*/,
+            selector: 'page-summary',template:/*ion-inline-start:"/home/vxsrini/Development/CEMobility/src/pages/summary/summary.html"*/`<div id="map" class="geomap">\n  <div id="filter_button">\n    <button ion-button small color="light" id="filter_button" (click)="filterButtonHandler()">\n      <ion-icon md-name="star"></ion-icon>\n    </button>\n  </div>\n\n  <div *ngIf="showFilter" id="selector_menu">\n\n    <ion-content>\n      <ion-list *ngFor="let item of listObj.header" class="accordion-list">\n        <ion-list-header>\n          <button ion-item (click)="toggleSection(item)" detail-none [ngClass]="{\'section-active\': item.open, \'section\': !item.open}">\n            <ion-icon item-left name="arrow-forward" *ngIf="!item.open"></ion-icon>\n            <ion-icon item-left name="arrow-down" *ngIf="item.open"></ion-icon>\n            {{item.group}}\n          </button>\n        </ion-list-header>\n\n        <div *ngIf="item.open">\n          <ion-item id="filter_items" *ngFor="let sub_item of item.sub_groups" class="item-data">\n            <ion-avatar item-left>\n            </ion-avatar>\n            <ion-label>{{sub_item.value}}</ion-label>\n            <ion-checkbox [(ngModel)]="sub_item.current_value" item-right *ngIf="sub_item.type==\'boolean\'"></ion-checkbox>\n          </ion-item>\n        </div>\n\n      </ion-list>\n    </ion-content>\n  </div>\n</div>\n\n\n<ion-grid >\n  <ion-row class="data-graph" >\n    <ion-col>\n      <div id="POR"></div>\n    </ion-col>\n    <ion-col>\n     </ion-col>\n  </ion-row>\n</ion-grid>`/*ion-inline-end:"/home/vxsrini/Development/CEMobility/src/pages/summary/summary.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular_navigation_nav_controller__["a" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_nav_params__["a" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular_navigation_nav_controller__["a" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular_navigation_nav_controller__["a" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_nav_params__["a" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_nav_params__["a" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */]) === "function" && _d || Object])
     ], Summary);
     return Summary;
-}());
+    var _a, _b, _c, _d;
+}(__WEBPACK_IMPORTED_MODULE_4__GoogleChartComponent__["a" /* GoogleChartComponent */]));
 
 //# sourceMappingURL=summary.js.map
 
@@ -510,6 +524,62 @@ var MyApp = (function () {
 }());
 
 //# sourceMappingURL=app.component.js.map
+
+/***/ }),
+
+/***/ 285:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GoogleChartComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var GoogleChartComponent = (function () {
+    function GoogleChartComponent() {
+        console.log("Here is GoogleChartComponent");
+    }
+    GoogleChartComponent_1 = GoogleChartComponent;
+    GoogleChartComponent.prototype.getGoogle = function () {
+        return google;
+    };
+    GoogleChartComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        console.log('ngOnInit');
+        if (!GoogleChartComponent_1.googleLoaded) {
+            GoogleChartComponent_1.googleLoaded = true;
+            google.charts.load('current', { packages: ['corechart'] });
+        }
+        google.charts.setOnLoadCallback(function () { return _this.drawGraph(); });
+    };
+    GoogleChartComponent.prototype.drawGraph = function () {
+        console.log("DrawGraph base class!!!! ");
+    };
+    GoogleChartComponent.prototype.createBarChart = function (element) {
+        return new google.visualization.BarChart(element);
+    };
+    GoogleChartComponent.prototype.createDataTable = function (array) {
+        return google.visualization.arrayToDataTable(array);
+    };
+    GoogleChartComponent = GoogleChartComponent_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'chart'
+        }),
+        __metadata("design:paramtypes", [])
+    ], GoogleChartComponent);
+    return GoogleChartComponent;
+    var GoogleChartComponent_1;
+}());
+
+//# sourceMappingURL=GoogleChartComponent.js.map
 
 /***/ })
 

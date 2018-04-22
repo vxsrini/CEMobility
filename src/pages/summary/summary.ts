@@ -1,10 +1,12 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController } from 'ionic-angular/navigation/nav-controller';
 import { NavParams } from 'ionic-angular/navigation/nav-params';
-import { Chart } from 'chart.js';
+//import { Chart } from 'chart.js';
 import { Http } from '@angular/http';
-import {GoogleCharts} from 'google-charts';
+//import { GoogleCharts } from 'google-charts';
+import { GoogleChartComponent } from '../GoogleChartComponent';
 import 'rxjs/add/operator/map';
+
 
 import L from 'leaflet';
 import 'leaflet.markercluster';
@@ -24,9 +26,9 @@ import { Injectable } from '@angular/core';
   selector: 'page-summary',
   templateUrl: 'summary.html',
 })
-export class Summary {
+export class Summary extends GoogleChartComponent {
 
-  @ViewChild('barCanvas') barCanvas;
+  //@ViewChild('barCanvas') barCanvas;
   @ViewChild('chart1') chart1;
   @ViewChild('map') mapContainer: ElementRef;
 
@@ -36,6 +38,9 @@ export class Summary {
   mymap: any;
   showFilter: boolean = false;
   private _db;
+  private options;
+  private data;
+  private chart;
 
   listObj: any;
 
@@ -47,10 +52,11 @@ export class Summary {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
     //this.addGraph();
+    super();
 
-    GoogleCharts.load(this.drawChart);
+    //GoogleCharts.load(this.drawChart);
 
-    this.http.get('http://vxsrini-desktop:3000/getFilterForSummary').map(res => res.json()).subscribe(
+    this.http.get('http://vxsrini-laptop:3000/getFilterForSummary').map(res => res.json()).subscribe(
       data => {
         console.log(JSON.stringify(data));
         this.listObj = data;
@@ -60,8 +66,8 @@ export class Summary {
       }
     );
 
- /*   PouchDB.plugin(cordovaSqlitePlugin);
-    this._db = new PouchDB('cofee.db', { adapter: 'cordova-sqlite' }); */
+    /*   PouchDB.plugin(cordovaSqlitePlugin);
+       this._db = new PouchDB('cofee.db', { adapter: 'cordova-sqlite' }); */
   }
 
   loadmap() {
@@ -100,34 +106,40 @@ export class Summary {
   ionViewDidLoad() {
     console.log('ionViewDidLoad Summary');
     this.loadmap();
-
-    /*this.http.get('http://vxsrini-desktop:3000/getDataForSites').map(res => res.json()).subscribe(
-      data => {
-        console.log(JSON.stringify(data));
-        this.barChart = new Chart(this.barCanvas.nativeElement, {
-          "type": "bar",
-          "data": data
-        });
-
-        this.drawChart();
-      },
-      err => {
-        console.log("Error Initiating - Could not obtain necessary data for sites");
-      }
-    );*/
-    this.drawChart();
   }
 
-  drawChart() {
- 
-    // Standard google charts functionality is available as GoogleCharts.api after load
-    const data = GoogleCharts.api.visualization.arrayToDataTable([
-        ['Chart thing', 'Chart amount'],
-        ['Lorem ipsum', 60],
-        ['Dolor sit', 22],
-        ['Sit amet', 18]
+  drawGraph() {
+    console.log("DrawGraph Evolution...");
+    /*this.data = this.createDataTable([
+      ['Evolution', 'Imports', 'Exports'],
+      ['A', 8695000, 6422800],
+      ['B', 3792000, 3694000],
+      ['C', 8175000, 800800]
+    ]);*/
+
+    this.data =  this.getGoogle().visualization.arrayToDataTable([
+      ['Evolution', 'Imports', 'Exports'],
+      ['A', 8695000, 6422800],
+      ['B', 3792000, 3694000],
+      ['C', 8175000, 800800]
     ]);
-    const pie_1_chart = new GoogleCharts.api.visualization.PieChart(document.getElementById('chart1'));
-    pie_1_chart.draw(data);
-}
+
+    this.options = {
+      title: 'Evolution, 2014',
+      chartArea: { width: '70%' },
+      hAxis: {
+        title: 'Value in USD',
+        minValue: 0
+      },
+      vAxis: {
+        title: 'Members'
+      }
+    };
+
+    
+
+    this.chart = this.createBarChart(document.getElementById('POR'));
+    this.chart.draw(this.data, this.options);
+  }
+
 }

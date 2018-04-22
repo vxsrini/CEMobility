@@ -1,50 +1,43 @@
 <div id="map" class="geomap">
-    <div id="filter_button">
-      <button ion-button small color="light" id="filter_button" (click)="filterButtonHandler()">
-        <ion-icon md-name="star"></ion-icon>
-      </button>
-    </div>
-  
-    <div *ngIf="showFilter" id="selector_menu">
-  
-      <ion-content>
-        <ion-list *ngFor="let item of listObj.header" class="accordion-list">
-          <ion-list-header>
-            <button ion-item (click)="toggleSection(item)" detail-none [ngClass]="{'section-active': item.open, 'section': !item.open}">
-              <ion-icon item-left name="arrow-forward" *ngIf="!item.open"></ion-icon>
-              <ion-icon item-left name="arrow-down" *ngIf="item.open"></ion-icon>
-              {{item.group}}
-            </button>
-          </ion-list-header>
-  
-          <div *ngIf="item.open">
-            <ion-item id="filter_items" *ngFor="let sub_item of item.sub_groups" class="item-data">
-              <ion-avatar item-left>
-              </ion-avatar>
-              <ion-label>{{sub_item.value}}</ion-label>
-              <ion-checkbox [(ngModel)]="sub_item.current_value" item-right *ngIf="sub_item.type=='boolean'"></ion-checkbox>
-            </ion-item>
-          </div>
-  
-        </ion-list>
-      </ion-content>
-    </div>
+  <div id="filter_button">
+    <button ion-button small color="light" id="filter_button" (click)="filterButtonHandler()">
+      <ion-icon md-name="star"></ion-icon>
+    </button>
   </div>
-  
-  <ion-card class="data-graph">
-    <ion-card-header>
-      Bar Chart
-    </ion-card-header>
-    <ion-card-content>
-      <canvas #barCanvas></canvas>
-    </ion-card-content>
-  </ion-card>
 
-  <ion-card class="data-graph">
-    <ion-card-header>
-      Google Chart
-    </ion-card-header>
-    <ion-card-content>
-      <canvas id="chart1"></canvas>
-    </ion-card-content>
-  </ion-card>
+  <div *ngIf="showFilter" id="selector_menu">
+
+    <ion-content>
+      <ion-list *ngFor="let item of listObj.header" class="accordion-list">
+        <ion-list-header>
+          <button ion-item (click)="toggleSection(item)" detail-none [ngClass]="{'section-active': item.open, 'section': !item.open}">
+            <ion-icon item-left name="arrow-forward" *ngIf="!item.open"></ion-icon>
+            <ion-icon item-left name="arrow-down" *ngIf="item.open"></ion-icon>
+            {{item.group}}
+          </button>
+        </ion-list-header>
+
+        <div *ngIf="item.open">
+          <ion-item id="filter_items" *ngFor="let sub_item of item.sub_groups" class="item-data">
+            <ion-avatar item-left>
+            </ion-avatar>
+            <ion-label>{{sub_item.value}}</ion-label>
+            <ion-checkbox [(ngModel)]="sub_item.current_value" item-right *ngIf="sub_item.type=='boolean'"></ion-checkbox>
+          </ion-item>
+        </div>
+
+      </ion-list>
+    </ion-content>
+  </div>
+</div>
+
+
+<ion-grid >
+  <ion-row class="data-graph" >
+    <ion-col>
+      <div id="POR"></div>
+    </ion-col>
+    <ion-col>
+     </ion-col>
+  </ion-row>
+</ion-grid>

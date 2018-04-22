@@ -25803,8 +25803,6 @@ page-summary .list {
 }
 
 page-summary .data-graph {
-  height: 50%;
-  width: 50%;
-  margin: 1%;
+  margin-top: 3%;
   border: brown;
 }
